@@ -39,49 +39,9 @@
     }
 </script>
 
-<script type="text/javascript">
-$(function() {
-    $(document).on("click",'.edit_button', function(e) {
-        var id          = $(this).data('id');
-        var nama        = $(this).data('nama');
-        $(".id").val(id);
-        $(".nama").val(nama);
-    })
-});
-</script>
-
-<div class="modal" id="editData" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form role="form" action="" method="post" id="formEdit" class="form-horizontal">
-            <input type="hidden" class="form-control id" name="id">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><i class="fa fa-edit"></i> Form Edit Agama</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Nama Agama</label>
-                    <div class="col-md-9">
-                        <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control nama" placeholder="Input Nama Agama" name="nama" autocomplete="off">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn green"><i class="fa fa-floppy-o"></i> Update</button>
-                <button type="button" class="btn yellow" data-dismiss="modal"><i class="fa fa-times"></i> Batal</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <div class="page-content-wrapper">
     <div class="page-content">
-        <h3 class="page-title">Master Umum</h3>
+        <h3 class="page-title">Detail Galeri Foto</h3>
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
@@ -90,11 +50,19 @@ $(function() {
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="<?=site_url('admin/master');?>">Master Umum</a>
+                    <a href="#">Galeri</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Agama</a>
+                    <a href="<?=site_url('admin/gallery');?>">Galeri Foto</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#">Detail Galeri Foto</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a href="#"><?=ucwords(strtolower(word_limiter($detail->gallery_name, 5)));?></a>
                 </li>
             </ul>
             <div class="page-toolbar">
@@ -106,54 +74,45 @@ $(function() {
 
         <div class="row">
             <div class="col-md-4">
-                <div class="portlet box green">
+                <div class="portlet box grey-steel">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-search"></i> Daftar Master Umum
+                            <i class="fa fa-plus-circle"></i> Tambah Foto
                         </div>
                     </div>
                     <div class="portlet-body form">
-                        <form role="form">
+                        <form role="form" method="post" id="formInput" action="" enctype="multipart/form-data">
+                            <input type="hidden" name="gallery_id" value="<?=$detail->gallery_id;?>">
                             <div class="form-body">
                                 <div class="form-group">
-                                    <label class="control-label">Pilih Menu Master</label>
-                                    <select class="form-control" name="lstMenu" onchange="la(this.value)">
-                                        <option value="">- Pilih Menu -</option>
-                                        <?php
-$listMaster = $this->gallery_m->select_menu()->result();
-foreach ($listMaster as $m) {
-    ?>
-                                        <option value="<?=site_url('admin/' . $m->menu_master_url);?>" <?php if ($this->uri->segment(2) == $m->menu_master_url) {echo 'selected';}?>><?=$m->menu_master_nama;?></option>
-                                            <?php }?>
-                                    </select>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="portlet box green">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <i class="fa fa-plus-circle"></i> Tambah Data
-                        </div>
-                    </div>
-                    <div class="portlet-body form">
-                        <form role="form" method="post" id="formInput" action="">
-                            <div class="form-body">
-                                <div class="form-group">
-                                    <label class="control-label">Nama Agama</label>
-                                    <div class="input-icon right">
-                                        <i class="fa"></i>
-                                        <input type="text" class="form-control" placeholder="Input Nama Agama" name="nama" id="nama" autocomplete="off">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img src="<?=base_url('img/no-image.png');?>" alt=""/>
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 300px; max-height: 150px;"></div>
+                                        <div>
+                                            <span class="btn default btn-file">
+                                            <span class="fileinput-new">
+                                            Pilih Foto </span>
+                                            <span class="fileinput-exists">
+                                            Ubah </span>
+                                            <input type="file" name="foto" accept=".png,.jpg,.jpeg,.gif" required>
+                                            </span>
+                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput">
+                                            Hapus </a>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix margin-top-10">
+                                        <span class="label label-danger">
+                                        INFO !</span>
+                                        Resolution : 900 x 700 Pixel
                                     </div>
                                 </div>
                             </div>
                             <div class="form-actions right">
+                                <a href="<?=site_url('admin/gallery');?>" type="button" class="btn btn-warning">
+                                    <i class="fa fa-times"></i> Batal
+                                </a>
                                 <button type="submit" class="btn green"><i class="fa fa-floppy-o"></i> Simpan</button>
                             </div>
                         </form>
@@ -162,19 +121,19 @@ foreach ($listMaster as $m) {
             </div>
 
             <div class="col-md-8">
-                <div class="portlet box green">
+                <div class="portlet box grey-steel">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-list"></i> Daftar Agama
+                            <i class="fa fa-list"></i> Daftar Detail Foto
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <table class="table table-bordered table-hover" id="tableData">
+                        <table class="table table-striped table-hover" id="tableData">
                             <thead>
                                 <tr>
-                                    <th width="15%"></th>
+                                    <th width="10%"></th>
                                     <th width="5%">No</th>
-                                    <th>Keterangan</th>
+                                    <th>Gambar</th>
                                 </tr>
                             </thead>
 
@@ -191,6 +150,7 @@ foreach ($listMaster as $m) {
     </div>
 </div>
 
+<script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
 <script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
 
@@ -199,17 +159,18 @@ var table;
 $(document).ready(function() {
     table = $('#tableData').DataTable({
         "pageLength" : 10,
+        "searching": false,
         "responsive": true,
         "processing": false,
         "serverSide": true,
         "order": [],
         "ajax": {
-            "url": "<?=site_url('admin/gallery/data_list')?>",
+            "url": "<?=site_url('admin/gallery/data_list_detail/'.$this->uri->segment(4))?>",
             "type": "POST"
         },
         "columnDefs": [
         {
-            "targets": [ 0, 1 ],
+            "targets": [ 0, 1, 2],
             "orderable": false,
         },
         ],
@@ -219,30 +180,8 @@ $(document).ready(function() {
 
 <script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
 <script type="text/javascript">
-function la(src) {
-    window.location = src;
-}
-
 function reload_table() {
-    table.ajax.reload(null,false); //reload datatable ajax
-}
-
-// Reset Form Input
-function resetformInput() {
-    $("#nama").val('');
-
-    var MValid = $("#formInput");
-    MValid.validate().resetForm();
-    MValid.find(".has-success, .has-waring, .fa-warning, .fa-check").removeClass("has-success has-warning fa-warning fa-check");
-    MValid.find("i.fa[data-original-title]").removeAttr('data-original-title');
-}
-
-// Reset Form Edit
-function resetformEdit() {
-    var MValid = $("#formEdit");
-    MValid.validate().resetForm();
-    MValid.find(".has-success, .has-waring, .fa-warning, .fa-check").removeClass("has-success has-warning fa-warning fa-check");
-    MValid.find("i.fa[data-original-title]").removeAttr('data-original-title');
+    table.ajax.reload(null,false);
 }
 
 $(document).ready(function() {
@@ -256,148 +195,73 @@ $(document).ready(function() {
         focusInvalid: false,
         ignore: "",
         rules: {
-            nama: {
-                required: true,
-                remote: {
-                    url: "<?=site_url('admin/gallery/register_ket_exists');?>",
-                    type: "post",
-                    data: {
-                        nama: function() {
-                            return $("#nama").val();
-                        }
+            foto: { required: true }
+        },
+        messages: {
+            foto: { required :'Foto harus diisi' }
+        },
+        invalidHandler: function (event, validator) {
+            success.hide();
+            error.show();
+            Metronic.scrollTo(error, -200);
+        },
+        errorPlacement: function (error, element) {
+            var icon = $(element).parent('.input-icon').children('i');
+            icon.removeClass('fa-check').addClass("fa-warning");
+            icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
+        },
+        highlight: function (element) {
+            $(element)
+            .closest('.form-group').removeClass("has-success").addClass('has-error');
+        },
+        unhighlight: function (element) {
+        },
+        success: function (label, element) {
+            var icon = $(element).parent('.input-icon').children('i');
+            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+            icon.removeClass("fa-warning").addClass("fa-check");
+        },
+        submitHandler: function(form) {
+            var formData = new FormData($('#formInput')[0]);
+            $.ajax({
+                url: '<?=site_url('admin/gallery/savedatadetail');?>',
+                type: "POST",
+                dataType: 'json',
+                data: formData,
+                async: true,
+                success: function(data) {
+                    if (data.status === 'success') {
+                        swal({
+                            title:"Sukses",
+                            text: "Update Upload Gambar Sukses",
+                            showConfirmButton: false,
+                            type: "success",
+                            timer: 2000
+                        });
+                    } else {
+                        swal({
+                            title:"Gagal",
+                            text: "Gagal ! Type File harus (JPG/PNG/JPEG)",
+                            timer: 2000,
+                            showConfirmButton: false,
+                            type: "error"
+                        });
                     }
-                }
-            }
-        },
-        messages: {
-            nama: {
-                required :'Agama harus di isi', remote:'Agama sudah Ada'
-            }
-        },
-
-        invalidHandler: function (event, validator) { //display error alert on form submit
-            success.hide();
-            error.show();
-            Metronic.scrollTo(error, -200);
-        },
-
-        errorPlacement: function (error, element) { // render error placement for each input type
-            var icon = $(element).parent('.input-icon').children('i');
-            icon.removeClass('fa-check').addClass("fa-warning");
-            icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
-        },
-
-        highlight: function (element) { // hightlight error inputs
-            $(element)
-            .closest('.form-group').removeClass("has-success").addClass('has-error'); // set error class to the control group
-        },
-
-        unhighlight: function (element) { // revert the change done by hightlight
-        },
-
-        success: function (label, element) {
-            var icon = $(element).parent('.input-icon').children('i');
-            $(element).closest('.form-group').removeClass('has-error').addClass('has-success'); // set success class to the control group
-            icon.removeClass("fa-warning").addClass("fa-check");
-        },
-
-        submitHandler: function(form) {
-            dataString = $("#formInput").serialize(); // Ambil Value dari Form
-            $.ajax({
-                url: "<?=site_url('admin/gallery/savedata');?>",
-                type: "POST",
-                data: dataString,
-                success: function(data) {
+                    location.reload();
+                },
+                error: function (response) {
                     swal({
-                        title:"Sukses",
-                        text: "Simpan Data Berhasil",
+                        title:"Error",
+                        text: "Update Upload Gambar Gagal",
                         showConfirmButton: false,
-                        type: "success",
+                        type: "error",
                         timer: 2000
                     });
-                    reload_table();
-                    resetformInput();
+                    location.reload();
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    alert('Error Simpan Data');
-                    reload_table();
-                    resetformInput();
-                }
-            });
-        }
-    });
-});
-
-$(document).ready(function() {
-    var form        = $('#formEdit');
-    var error       = $('.alert-danger', form);
-    var success     = $('.alert-success', form);
-
-    $("#formEdit").validate({
-        errorElement: 'span',
-        errorClass: 'help-block help-block-error',
-        focusInvalid: false,
-        ignore: "",
-        rules: {
-            nama: {
-                required: true
-            }
-        },
-        messages: {
-            nama: {
-                required :'Agama harus di isi'
-            }
-        },
-
-        invalidHandler: function (event, validator) { //display error alert on form submit
-            success.hide();
-            error.show();
-            Metronic.scrollTo(error, -200);
-        },
-
-        errorPlacement: function (error, element) { // render error placement for each input type
-            var icon = $(element).parent('.input-icon').children('i');
-            icon.removeClass('fa-check').addClass("fa-warning");
-            icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
-        },
-
-        highlight: function (element) { // hightlight error inputs
-            $(element)
-            .closest('.form-group').removeClass("has-success").addClass('has-error'); // set error class to the control group
-        },
-
-        unhighlight: function (element) { // revert the change done by hightlight
-        },
-
-        success: function (label, element) {
-            var icon = $(element).parent('.input-icon').children('i');
-            $(element).closest('.form-group').removeClass('has-error').addClass('has-success'); // set success class to the control group
-            icon.removeClass("fa-warning").addClass("fa-check");
-        },
-
-        submitHandler: function(form) {
-            dataString = $("#formEdit").serialize(); // Ambil Value dari Form
-            $.ajax({
-                url: "<?=site_url('admin/gallery/updatedata');?>",
-                type: "POST",
-                data: dataString,
-                success: function(data) {
-                    swal({
-                        title:"Sukses",
-                        text: "Update Data Berhasil",
-                        showConfirmButton: false,
-                        type: "success",
-                        timer: 2000
-                    });
-                    $('#editData').modal('hide');
-                    reload_table();
-                    resetformEdit();
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    alert('Error Update data');
-                    reload_table();
-                    resetformEdit();
-                }
+                cache: false,
+                contentType: false,
+                processData: false
             });
         }
     });

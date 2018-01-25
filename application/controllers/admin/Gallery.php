@@ -151,10 +151,83 @@ class Gallery extends CI_Controller
         echo json_encode(array("status" => true));
     }
 
-    public function listdetail($gallery_id)
+    public function listdetail($id)
     {
-        $data['listData'] = $this->gallery_m->select_all_by_id($gallery)->result();
+        $data['detail'] = $this->gallery_m->select_by_id($id)->row();
         $this->template->display('admin/master/gallery_detail_view', $data);
+    }
+
+    public function data_list_detail()
+    {
+        $List = $this->gallery_m->get_datatables_detail();
+        $data = array();
+        $no   = $_POST['start'];
+
+        foreach ($List as $r) {
+            $no++;
+            $row        = array();
+            $detail_id  = $r->detail_id;
+            $row[]      = ' <a onclick="hapusData(' . $detail_id . ')">
+                            <button class="btn btn-danger btn-xs" type="button" title="Delete Data"><i class="fa fa-times-circle"></i>
+                            </button>
+                            </a>';
+
+            $row[] = $no;
+            $row[] = '<img src=' . base_url('img/gallery_folder/' . $r->detail_image) . ' width="50%">';
+
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw"            => $_POST['draw'],
+            "recordsTotal"    => $this->gallery_m->count_all_detail(),
+            "recordsFiltered" => $this->gallery_m->count_filtered_detail(),
+            "data"            => $data,
+        );
+
+        echo json_encode($output);
+    }
+
+    public function savedatadetail()
+    {
+        $jam = time();
+
+        $config['file_name']     = 'Gallery_Detail_' . $jam . '.jpg';
+        $config['upload_path']   = './img/gallery_folder/';
+        $config['allowed_types'] = 'jpg|png|gif|jpeg';
+        $config['overwrite']     = true;
+        $config['max_size']      = 0;
+        $this->load->library('upload');
+        $this->upload->initialize($config);
+        // Resize
+        $configThumb                   = array();
+        $configThumb['image_library']  = 'gd2';
+        $configThumb['source_image']   = '';
+        $configThumb['maintain_ratio'] = true;
+        $configThumb['overwrite']      = true;
+        $configThumb['width']          = 900;
+        $configThumb['height']         = 700;
+        $this->load->library('image_lib');
+
+        if (!$this->upload->do_upload('foto')) {
+            $response['status'] = 'error';
+        } else {
+            $upload                      = $this->upload->do_upload('foto');
+            $upload_data                 = $this->upload->data();
+            $name_array[]                = $upload_data['file_name'];
+            $configThumb['source_image'] = $upload_data['full_path'];
+            $this->image_lib->initialize($configThumb);
+            $this->image_lib->resize();
+            $this->gallery_m->insert_data_detail();
+            $response['status'] = 'success';
+        }
+        echo json_encode($response);
+    }
+
+    public function deletedatadetail($id)
+    {
+        $this->gallery_m->delete_data_detail($id);
+        echo json_encode(array("status" => true));
     }
 }
 /* Location: ./application/controller/admin/Gallery.php */

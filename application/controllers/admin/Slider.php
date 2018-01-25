@@ -35,8 +35,14 @@ class Slider extends CI_Controller
             $row       = array();
             $slider_id = $r->slider_id;
 
-            $row[] = '	<button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $slider_id . "'" . ')"><i class="fa fa-edit"></i></button>
-            			<a onclick="hapusData(' . $slider_id . ')"><button class="btn btn-danger btn-xs" type="button" title="Delete Data"><i class="fa fa-times-circle"></i></button>';
+            $row[] = '	<button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $slider_id . "'" . ')">
+                        <i class="fa fa-edit"></i>
+                        </button>
+            			<a onclick="hapusData(' . $slider_id . ')">
+                            <button class="btn btn-danger btn-xs" type="button" title="Delete Data">
+                            <i class="fa fa-times-circle"></i>
+                            </button>
+                        </a>';
 
             $row[] = $no;
             $row[] = '<img src=' . base_url('img/slider_folder/' . $r->slider_image) . ' width="50%">';

@@ -35,8 +35,14 @@ class Img_about extends CI_Controller
             $row       = array();
             $img_about_id = $r->img_about_id;
 
-            $row[] = '	<button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $img_about_id . "'" . ')"><i class="fa fa-edit"></i></button>
-            			<a onclick="hapusData(' . $img_about_id . ')"><button class="btn btn-danger btn-xs" type="button" title="Delete Data"><i class="fa fa-times-circle"></i></button>';
+            $row[] = '	<button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $img_about_id . "'" . ')">
+                        <i class="fa fa-edit"></i>
+                        </button>
+            			<a onclick="hapusData(' . $img_about_id . ')">
+                            <button class="btn btn-danger btn-xs" type="button" title="Delete Data">
+                            <i class="fa fa-times-circle"></i>
+                            </button>
+                        </a>';
 
             $row[] = $no;
             $row[] = '<img src=' . base_url('img/img_about_folder/' . $r->img_about_image) . ' width="50%">';

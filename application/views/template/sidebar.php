@@ -3,203 +3,556 @@ $uri  = $this->uri->segment(2);
 $uri1 = $this->uri->segment(3);
 
 if ($uri == 'home') {
-    $dashboard      = 'active';
-    $master         = '';
-    $span_master_1  = '';
-    $span_master_2  = '';
-    $slider         = '';
-    $about          = '';
-    $img_about      = '';
-    $visimisi       = '';
-    $team           = '';
-    $employee       = '';
-    $product        = '';
-    $promo          = '';
-    $gal            = '';
-    $span_gal_1     = '';
-    $span_gal_2     = '';
+    $dashboard        = 'active';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
     $category_gallery = '';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'slider') {
-    $dashboard      = '';
-    $master         = 'active open';
-    $span_master_1  = '<span class="selected"></span>';
-    $span_master_2  = 'open';
-    $slider         = 'active';
-    $about          = '';
-    $img_about      = '';
-    $visimisi       = '';
-    $team           = '';
-    $employee       = '';
-    $product        = '';
-    $promo          = '';
-    $gal            = '';
-    $span_gal_1     = '';
-    $span_gal_2     = '';
+    $dashboard        = '';
+    $master           = 'active open';
+    $span_master_1    = '<span class="selected"></span>';
+    $span_master_2    = 'open';
+    $slider           = 'active';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
     $category_gallery = '';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'about') {
-    $dashboard      = '';
-    $master         = 'active open';
-    $span_master_1  = '<span class="selected"></span>';
-    $span_master_2  = 'open';
-    $slider         = '';
-    $about          = 'active';
-    $img_about      = '';
-    $visimisi       = '';
-    $team           = '';
-    $employee       = '';
-    $product        = '';
-    $promo          = '';
-    $gal            = '';
-    $span_gal_1     = '';
-    $span_gal_2     = '';
+    $dashboard        = '';
+    $master           = 'active open';
+    $span_master_1    = '<span class="selected"></span>';
+    $span_master_2    = 'open';
+    $slider           = '';
+    $about            = 'active';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
     $category_gallery = '';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'img_about') {
-    $dashboard      = '';
-    $master         = 'active open';
-    $span_master_1  = '<span class="selected"></span>';
-    $span_master_2  = 'open';
-    $slider         = '';
-    $about          = '';
-    $img_about      = 'active';
-    $visimisi       = '';
-    $team           = '';
-    $employee       = '';
-    $product        = '';
-    $promo          = '';
-    $gal            = '';
-    $span_gal_1     = '';
-    $span_gal_2     = '';
+    $dashboard        = '';
+    $master           = 'active open';
+    $span_master_1    = '<span class="selected"></span>';
+    $span_master_2    = 'open';
+    $slider           = '';
+    $about            = '';
+    $img_about        = 'active';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
     $category_gallery = '';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'visimisi') {
-    $dashboard      = '';
-    $master         = 'active open';
-    $span_master_1  = '<span class="selected"></span>';
-    $span_master_2  = 'open';
-    $slider         = '';
-    $about          = '';
-    $img_about      = '';
-    $visimisi       = 'active';
-    $team           = '';
-    $employee       = '';
-    $product        = '';
-    $promo          = '';
-    $gal            = '';
-    $span_gal_1     = '';
-    $span_gal_2     = '';
+    $dashboard        = '';
+    $master           = 'active open';
+    $span_master_1    = '<span class="selected"></span>';
+    $span_master_2    = 'open';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = 'active';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
     $category_gallery = '';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'team') {
-    $dashboard      = '';
-    $master         = 'active open';
-    $span_master_1  = '<span class="selected"></span>';
-    $span_master_2  = 'open';
-    $slider         = '';
-    $about          = '';
-    $img_about      = '';
-    $visimisi       = '';
-    $team           = 'active';
-    $employee       = '';
-    $product        = '';
-    $promo          = '';
-    $gal            = '';
-    $span_gal_1     = '';
-    $span_gal_2     = '';
+    $dashboard        = '';
+    $master           = 'active open';
+    $span_master_1    = '<span class="selected"></span>';
+    $span_master_2    = 'open';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = 'active';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
     $category_gallery = '';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'employee') {
-    $dashboard      = '';
-    $master         = 'active open';
-    $span_master_1  = '<span class="selected"></span>';
-    $span_master_2  = 'open';
-    $slider         = '';
-    $about          = '';
-    $img_about      = '';
-    $visimisi       = '';
-    $team           = '';
-    $employee       = 'active';
-    $product        = '';
-    $promo          = '';
-    $gal            = '';
-    $span_gal_1     = '';
-    $span_gal_2     = '';
+    $dashboard        = '';
+    $master           = 'active open';
+    $span_master_1    = '<span class="selected"></span>';
+    $span_master_2    = 'open';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = 'active';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
     $category_gallery = '';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'meta') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = 'active';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'social') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = 'active';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'product') {
-    $dashboard      = '';
-    $master         = '';
-    $span_master_1  = '';
-    $span_master_2  = '';
-    $slider         = '';
-    $about          = '';
-    $img_about      = '';
-    $visimisi       = '';
-    $team           = '';
-    $employee       = '';
-    $product        = 'active';
-    $promo          = '';
-    $gal            = '';
-    $span_gal_1     = '';
-    $span_gal_2     = '';
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = 'active';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
     $category_gallery = '';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'promo') {
-    $dashboard      = '';
-    $master         = '';
-    $span_master_1  = '';
-    $span_master_2  = '';
-    $slider         = '';
-    $about          = '';
-    $img_about      = '';
-    $visimisi       = '';
-    $team           = '';
-    $employee       = '';
-    $product        = '';
-    $promo          = 'active';
-    $gal            = '';
-    $span_gal_1     = '';
-    $span_gal_2     = '';
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = 'active';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
     $category_gallery = '';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'category_gallery') {
-    $dashboard      = '';
-    $master         = '';
-    $span_master_1  = '';
-    $span_master_2  = '';
-    $slider         = '';
-    $about          = '';
-    $img_about      = '';
-    $visimisi       = '';
-    $team           = '';
-    $employee       = '';
-    $product        = '';
-    $promo          = '';
-    $gal            = 'active open';
-    $span_gal_1     = '<span class="selected"></span>';
-    $span_gal_2     = 'open';
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = 'active open';
+    $span_gal_1       = '<span class="selected"></span>';
+    $span_gal_2       = 'open';
     $category_gallery = 'active';
-    $gallery        = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 } elseif ($uri == 'gallery') {
-    $dashboard      = '';
-    $master         = '';
-    $span_master_1  = '';
-    $span_master_2  = '';
-    $slider         = '';
-    $about          = '';
-    $img_about      = '';
-    $visimisi       = '';
-    $team           = '';
-    $employee       = '';
-    $product        = '';
-    $promo          = '';
-    $gal            = 'active open';
-    $span_gal_1     = '<span class="selected"></span>';
-    $span_gal_2     = 'open';
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = 'active open';
+    $span_gal_1       = '<span class="selected"></span>';
+    $span_gal_2       = 'open';
     $category_gallery = '';
-    $gallery        = 'active';
+    $gallery          = 'active';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'category') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = 'active open';
+    $span_tab_1       = '<span class="selected"></span>';
+    $span_tab_2       = 'open';
+    $category         = 'active';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'article') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = 'active open';
+    $span_tab_1       = '<span class="selected"></span>';
+    $span_tab_2       = 'open';
+    $category         = '';
+    $article          = 'active';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'paket') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = 'active';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'year') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = 'active';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'student') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = 'active';
+    $users            = '';
+} elseif ($uri == 'users') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = 'active';
 }
 ?>
 <div class="page-sidebar-wrapper">
@@ -224,7 +577,7 @@ if ($uri == 'home') {
                     <i class="fa fa-home"></i><span class="title"> Dashboard</span>
                 </a>
             </li>
-            <?php if ($this->session->userdata('level') == 'Admin') { ?>
+            <?php if ($this->session->userdata('level') == 'Admin') {?>
             <li class="heading">
                 <h3 class="uppercase">MASTER</h3>
             </li>
@@ -256,7 +609,17 @@ if ($uri == 'home') {
                     </li>
                 </ul>
             </li>
-            <?php } ?>
+            <li class="tooltips <?=$meta;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Meta Tags & SEO">
+                <a href="<?=site_url('admin/meta');?>">
+                    <i class="fa fa-search"></i><span class="title"> Meta Tags & SEO</span>
+                </a>
+            </li>
+            <li class="tooltips <?=$social;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Social Media">
+                <a href="<?=site_url('admin/social');?>">
+                    <i class="fa fa-external-link"></i><span class="title"> Sosial Media</span>
+                </a>
+            </li>
+            <?php }?>
             <li class="heading">
                 <h3 class="uppercase">CONTENT</h3>
             </li>
@@ -279,13 +642,57 @@ if ($uri == 'home') {
                 </a>
                 <ul class="sub-menu">
                     <li class="<?=$category_gallery;?>">
-                        <a href="<?=site_url('admin/category_gallery');?>"><i class="fa fa-arrow-circle-o-right"></i> Kategori Galeri</a>
+                        <a href="<?=site_url('admin/category_gallery');?>"><i class="fa fa-arrow-circle-o-right"></i> Kategori</a>
                     </li>
                     <li class="<?=$gallery;?>">
                         <a href="<?=site_url('admin/gallery');?>"><i class="fa fa-arrow-circle-o-right"></i> Galeri Foto</a>
                     </li>
                 </ul>
             </li>
+            <li class="<?=$tabloid;?>">
+                <a href="#">
+                    <i class="fa fa-newspaper-o"></i>
+                    <span class="title"> Tabloid</span>
+                    <?=$span_tab_1;?>
+                    <span class="arrow <?=$span_tab_2;?>"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="<?=$category;?>">
+                        <a href="<?=site_url('admin/category');?>"><i class="fa fa-arrow-circle-o-right"></i> Kategori</a>
+                    </li>
+                    <li class="<?=$article;?>">
+                        <a href="<?=site_url('admin/article');?>"><i class="fa fa-arrow-circle-o-right"></i> Artikel</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="tooltips <?=$paket;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Paket">
+                <a href="<?=site_url('admin/paket');?>">
+                    <i class="fa fa-gift"></i><span class="title"> Paket</span>
+                </a>
+            </li>
+            <li class="heading">
+                <h3 class="uppercase">PENERIMAAN SISWA</h3>
+            </li>
+            <li class="tooltips <?=$year;?>" data-container="body" data-placement="right" data-html="true" data-original-title="School Year">
+                <a href="<?=site_url('admin/year');?>">
+                    <i class="fa fa-calendar"></i><span class="title"> Tahun Ajaran</span>
+                </a>
+            </li>
+            <li class="tooltips <?=$student;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Student">
+                <a href="<?=site_url('admin/student');?>">
+                    <i class="fa fa-child"></i><span class="title"> Siswa</span>
+                </a>
+            </li>
+            <?php if ($this->session->userdata('level') == 'Admin') {?>
+            <li class="heading">
+                <h3 class="uppercase">USERS</h3>
+            </li>
+            <li class="tooltips <?=$users;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Users">
+                <a href="<?=site_url('admin/users');?>">
+                    <i class="fa fa-users"></i><span class="title"> Users</span>
+                </a>
+            </li>
+            <?php } ?>
         </ul>
     </div>
 </div>

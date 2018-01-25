@@ -2,8 +2,8 @@
 <script src="<?=base_url();?>backend/js/sweetalert2.min.js"></script>
 
 <script>
-    function hapusData(category_id) {
-        var id = category_id;
+    function hapusData(year_id) {
+        var id = year_id;
         swal({
             title: 'Anda Yakin ?',
             text: 'Data ini akan di Hapus !',
@@ -17,7 +17,7 @@
         }, function(isConfirm) {
             if (!isConfirm) return;
             $.ajax({
-                url : "<?=site_url('admin/category/deletedata')?>/"+id,
+                url : "<?=site_url('admin/year/deletedata')?>/"+id,
                 type: "POST",
                 dataType: "JSON",
                 success: function(data) {
@@ -36,11 +36,46 @@
             });
         });
     }
+
+    function aktifData(year_id) {
+        var id = year_id;
+        swal({
+            title: 'Anda Yakin ?',
+            text: 'Tahun Ajaran ini akan di Aktifkan !',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Aktifkan',
+            cancelButtonText: 'Tidak',
+            closeOnConfirm: true
+        }, function(isConfirm) {
+            if (!isConfirm) return;
+            $.ajax({
+                url : "<?=site_url('admin/year/activate')?>/"+id,
+                type: "POST",
+                dataType: "JSON",
+                success: function(data) {
+                    swal({
+                        title:"Sukses",
+                        text: "Tahun Ajaran Di Aktifkan",
+                        showConfirmButton: false,
+                        type: "success",
+                        timer: 2000
+                    });
+                    reload_table();
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('Error Aktifkan Data');
+                }
+            });
+        });
+    }
 </script>
 
 <div class="page-content-wrapper">
     <div class="page-content">
-        <h3 class="page-title">Kategori</h3>
+        <h3 class="page-title">Tahun Ajaran</h3>
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
@@ -49,11 +84,11 @@
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Tabloid</a>
+                    <a href="#">Penerimaan Siswa</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Kategori</a>
+                    <a href="#">Tahun Ajaran</a>
                 </li>
             </ul>
             <div class="page-toolbar">
@@ -68,7 +103,7 @@
                 <div class="portlet box grey-steel">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-list"></i> Daftar Kategori
+                            <i class="fa fa-list"></i> Daftar Tahun Ajaran
                         </div>
                     </div>
                     <div class="portlet-body">
@@ -81,9 +116,8 @@
                                 <tr>
                                     <th width="10%"></th>
                                     <th width="5%">No</th>
-                                    <th width="5%">Urutan</th>
-                                    <th>Nama Kategori</th>
-                                    <th width="10%">Ubah Urutan</th>
+                                    <th>Tahun Ajaran</th>
+                                    <th width="20%">Status</th>
                                 </tr>
                             </thead>
 
@@ -102,6 +136,7 @@
 
 <script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
 var table;
@@ -113,21 +148,18 @@ $(document).ready(function() {
         "serverSide": true,
         "order": [2, 'asc'],
         "ajax": {
-            "url": "<?=site_url('admin/category/data_list')?>",
+            "url": "<?=site_url('admin/year/data_list');?>",
             "type": "POST"
         },
         "columnDefs": [
         {
-            "targets": [ 0, 1, 4],
+            "targets": [ 0, 1],
             "orderable": false,
         },
         ],
     });
 });
-</script>
 
-<script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
-<script type="text/javascript">
 // Reset Form Input
 function resetformInput() {
     $("#name").val('');
@@ -164,7 +196,9 @@ $(document).ready(function() {
             name: { required: true }
         },
         messages: {
-            name: { required :'Nama Kategori harus diisi' }
+            name: {
+                required :'Nama Tahun Ajaran harus diisi'
+            }
         },
         invalidHandler: function (event, validator) {
             success.hide();
@@ -190,7 +224,7 @@ $(document).ready(function() {
         submitHandler: function(form) {
             dataString = $("#formInput").serialize();
             $.ajax({
-                url: '<?=site_url('admin/category/savedata');?>',
+                url: '<?=site_url('admin/year/savedata');?>',
                 type: "POST",
                 data: dataString,
                 success: function(data) {
@@ -224,12 +258,12 @@ $(document).ready(function() {
 function edit_data(id) {
     $('#formEdit')[0].reset();
     $.ajax({
-        url : "<?=site_url('admin/category/get_data/');?>"+id,
+        url : "<?=site_url('admin/year/get_data/');?>"+id,
         type: "GET",
         dataType: "JSON",
         success: function(data) {
-            $('#id').val(data.category_id);
-            $('#category_name').val(data.category_name);
+            $('#id').val(data.year_id);
+            $('#year_name').val(data.year_name);
             $('#formModalEdit').modal('show');
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -249,15 +283,11 @@ $(document).ready(function() {
         focusInvalid: false,
         ignore: "",
         rules: {
-            name: { required: true },
-            lstTampil: { required: true }
+            name: { required: true }
         },
         messages: {
             name: {
-                required :'Nama Kategori harus diisi'
-            },
-            lstTampil: {
-                required :'Tampil harus dipilih'
+                required :'Nama Tahun Ajaran harus diisi'
             }
         },
         invalidHandler: function (event, validator) {
@@ -284,7 +314,7 @@ $(document).ready(function() {
         submitHandler: function(form) {
             dataString = $("#formEdit").serialize();
             $.ajax({
-                url: '<?=site_url('admin/category/updatedata');?>',
+                url: '<?=site_url('admin/year/updatedata');?>',
                 type: "POST",
                 data: dataString,
                 success: function(data) {
@@ -322,14 +352,14 @@ $(document).ready(function() {
             <form role="form" action="" method="post" id="formInput" class="form-horizontal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Form Tambah Kategori</h4>
+                <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Form Tambah Tahun Ajaran</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Nama Kategori</label>
+                    <label class="col-md-3 control-label">Tahun Ajaran</label>
                     <div class="col-md-9">
                         <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input Nama Kategori" name="name" id="name" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="Input Tahun Ajaran" name="name" id="name" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -349,15 +379,15 @@ $(document).ready(function() {
             <form role="form" action="" method="post" id="formEdit" class="form-horizontal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><i class="fa fa-edit"></i> Form Edit Kategori</h4>
+                <h4 class="modal-title"><i class="fa fa-edit"></i> Form Edit Tahun Ajaran</h4>
                 <input type="hidden" name="id" id="id">
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Nama Kategori</label>
+                    <label class="col-md-3 control-label">Tahun Ajaran</label>
                     <div class="col-md-9">
                         <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input Nama Kategori" name="name" id="category_name" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="Input Tahun Ajaran" name="name" id="year_name" autocomplete="off">
                         </div>
                     </div>
                 </div>

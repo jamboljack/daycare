@@ -35,8 +35,14 @@ class Category_gallery extends CI_Controller
             $row     = array();
             $category_gallery_id = $r->category_gallery_id;
 
-            $row[] = '  <button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $category_gallery_id . "'" . ')"><i class="fa fa-edit"></i></button>
-                        <a onclick="hapusData(' . $category_gallery_id . ')"><button class="btn btn-danger btn-xs" type="button" title="Delete Data"><i class="fa fa-times-circle"></i></button>';
+            $row[] = '  <button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $category_gallery_id . "'" . ')">
+                        <i class="fa fa-edit"></i>
+                        </button>
+                        <a onclick="hapusData(' . $category_gallery_id . ')">
+                            <button class="btn btn-danger btn-xs" type="button" title="Delete Data">
+                            <i class="fa fa-times-circle"></i>
+                            </button>
+                        </a>';
 
             $row[] = $no;
             $row[] = $r->category_gallery_name;

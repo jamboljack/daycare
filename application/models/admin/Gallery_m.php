@@ -8,6 +8,11 @@ class Gallery_m extends CI_Model
     public $column_search = array('g.gallery_name', 'c.category_gallery_name');
     public $order         = array('g.gallery_id' => 'desc');
 
+    public $table2         = 'alifa_gallery_detail';
+    public $column_order2  = array(null, null, null);
+    public $column_search2 = array();
+    public $order2         = array('gallery_id' => 'desc');
+
     public function __construct()
     {
         parent::__construct();
@@ -131,6 +136,82 @@ class Gallery_m extends CI_Model
     {
         $this->db->where('gallery_id', $id);
         $this->db->delete('alifa_gallery');
+    }
+
+    private function _get_datatables_detail_query()
+    {
+        $gallery_id = $this->uri->segment(4);
+        $this->db->from($this->table2);
+        $this->db->where('gallery_id', $gallery_id);
+
+        $i = 0;
+        foreach ($this->column_search2 as $item) {
+            if ($_POST['search']['value']) {
+                if ($i === 0) {
+                    $this->db->group_start();
+                    $this->db->like($item, $_POST['search']['value']);
+                } else {
+                    $this->db->or_like($item, $_POST['search']['value']);
+                }
+
+                if (count($this->column_search2) - 1 == $i) {
+                    $this->db->group_end();
+                }
+
+            }
+            $i++;
+        }
+
+        if (isset($_POST['order'])) {
+            $this->db->order_by($this->column_order2[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+        } else if (isset($this->order)) {
+            $order = $this->order2;
+            $this->db->order_by(key($order), $order[key($order)]);
+        }
+    }
+
+    public function get_datatables_detail()
+    {
+        $this->_get_datatables_detail_query();
+        if ($_POST['length'] != -1) {
+            $this->db->limit($_POST['length'], $_POST['start']);
+        }
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function count_filtered_detail()
+    {
+        $this->_get_datatables_detail_query();
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    public function count_all_detail()
+    {
+        $gallery_id = $this->uri->segment(4);
+        $this->db->from($this->table2);
+        $this->db->where('gallery_id', $gallery_id);
+
+        return $this->db->count_all_results();
+    }
+
+    public function insert_data_detail()
+    {
+        $data = array(
+            'gallery_id'     => $this->input->post('gallery_id', 'true'),
+            'detail_image'   => $this->upload->file_name,
+            'detail_update'  => date('Y-m-d H:i:s'),
+        );
+
+        $this->db->insert('alifa_gallery_detail', $data);
+    }
+
+    public function delete_data_detail($id)
+    {
+        $this->db->where('detail_id', $id);
+        $this->db->delete('alifa_gallery_detail');
     }
 }
 /* Location: ./application/models/admin/Gallery_m.php */

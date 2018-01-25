@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Category_m extends CI_Model
+class Year_m extends CI_Model
 {
-    public $table         = 'alifa_category';
-    public $column_order  = array(null, null, 'category_no', 'category_name', null);
-    public $column_search = array('category_name');
-    public $order         = array('category_no' => 'asc');
+    public $table         = 'alifa_year';
+    public $column_order  = array(null, null, 'year_name', 'year_status');
+    public $column_search = array('year_name', 'year_status');
+    public $order         = array('year_id' => 'desc');
 
     public function __construct()
     {
@@ -70,51 +70,55 @@ class Category_m extends CI_Model
     public function insert_data()
     {
         $data = array(
-            'category_name'   => strtoupper($this->input->post('name', 'true')),
-            'category_seo'    => seo_title(stripHTMLtags($this->input->post('name', 'true'))),
-            'category_update' => date('Y-m-d H:i:s'),
+            'year_name'   => strtoupper($this->input->post('name', 'true')),
+            'year_update' => date('Y-m-d H:i:s'),
         );
 
-        $this->db->insert('alifa_category', $data);
+        $this->db->insert('alifa_year', $data);
     }
 
     public function select_by_id($id)
     {
         $this->db->select('*');
-        $this->db->from('alifa_category');
-        $this->db->where('category_id', $id);
+        $this->db->from('alifa_year');
+        $this->db->where('year_id', $id);
 
         return $this->db->get();
     }
 
     public function update_data()
     {
-        $category_id = $this->input->post('id', 'true');
-        $data = array(
-            'category_name'   => strtoupper($this->input->post('name', 'true')),
-            'category_seo'    => seo_title(stripHTMLtags($this->input->post('name', 'true'))),
-            'category_update' => date('Y-m-d H:i:s'),
+        $year_id = $this->input->post('id', 'true');
+        $data    = array(
+            'year_name'   => strtoupper($this->input->post('name', 'true')),
+            'year_update' => date('Y-m-d H:i:s'),
         );
-        $this->db->where('category_id', $category_id);
-        $this->db->update('alifa_category', $data);
+        $this->db->where('year_id', $year_id);
+        $this->db->update('alifa_year', $data);
     }
 
     public function delete_data($id)
     {
-        $this->db->where('category_id', $id);
-        $this->db->delete('alifa_category');
+        $this->db->where('year_id', $id);
+        $this->db->delete('alifa_year');
     }
 
-    public function atas($id, $posisi, $posisi_baru)
+    public function activate_data($id)
     {
-        $this->db->query("UPDATE alifa_category SET category_no='$posisi' WHERE category_no = '$posisi_baru'");
-        $this->db->query("UPDATE alifa_category SET category_no='$posisi_baru' WHERE category_id='$id'");
-    }
+        $data = array(
+            'year_status' => 1,
+            'year_update' => date('Y-m-d H:i:s'),
+        );
+        $this->db->where('year_id', $id);
+        $this->db->update('alifa_year', $data);
 
-    public function bawah($id, $posisi, $posisi_baru)
-    {
-        $this->db->query("UPDATE alifa_category SET category_no='$posisi' WHERE category_no='$posisi_baru'");
-        $this->db->query("UPDATE alifa_category SET category_no='$posisi_baru' WHERE category_id='$id'");
+        $data = array(
+            'year_status' => 0,
+            'year_update' => date('Y-m-d H:i:s'),
+        );
+        $this->db->where('year_id <>', $id);
+        $this->db->update('alifa_year', $data);
+
     }
 }
-/* Location: ./application/models/admin/Category_m.php */
+/* Location: ./application/models/admin/Year_m.php */

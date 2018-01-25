@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Promo extends CI_Controller
+class Article extends CI_Controller
 {
     public function __construct()
     {
@@ -11,13 +11,13 @@ class Promo extends CI_Controller
         }
 
         $this->load->library('template');
-        $this->load->model('admin/promo_m');
+        $this->load->model('admin/article_m');
     }
 
     public function index()
     {
         if ($this->session->userdata('logged_in_alifa')) {
-            $this->template->display('admin/master/promo_view');
+            $this->template->display('admin/article/view');
         } else {
             $this->session->sess_destroy();
             redirect(base_url());
@@ -26,48 +26,53 @@ class Promo extends CI_Controller
 
     public function data_list()
     {
-        $List = $this->promo_m->get_datatables();
+        $List = $this->article_m->get_datatables();
         $data = array();
         $no   = $_POST['start'];
 
         foreach ($List as $r) {
             $no++;
-            $row       = array();
-            $promo_id = $r->promo_id;
+            $row     = array();
+            $article_id = $r->article_id;
 
-            $row[] = '	<button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $promo_id . "'" . ')">
-                        <i class="fa fa-edit"></i>
-                        </button>
-            			<a onclick="hapusData(' . $promo_id . ')">
-                            <button class="btn btn-danger btn-xs" type="button" title="Delete Data">
-                            <i class="fa fa-times-circle"></i>
-                            </button>
-                        </a>';
+            $link  = site_url('admin/article/editdata/' . $r->article_id);
+            $row[] = '<a href="' . $link . '"><button class="btn btn-primary btn-xs" title="Edit Data"><i class="fa fa-edit"></i></button></a>
+                        <a onclick="hapusData(' . $article_id . ')"><button class="btn btn-danger btn-xs" type="button" title="Delete Data"><i class="fa fa-times-circle"></i></button>';
 
             $row[] = $no;
-            $row[] = date('d-m-Y' ,strtotime($r->promo_post));
-            $row[] = $r->promo_name;
-            $row[] = '<img src=' . base_url('img/promo_folder/' . $r->promo_image) . ' width="50%">';
+            $row[] = date('d-m-Y', strtotime($r->article_post));
+            $row[] = $r->user_username;
+            $row[] = $r->category_name;
+            $row[] = $r->article_title;
+            $row[] = $r->article_read;
+            $row[] = '<img src=' . base_url('img/article_folder/' . $r->article_image) . ' width="50%">';
 
             $data[] = $row;
         }
 
         $output = array(
             "draw"            => $_POST['draw'],
-            "recordsTotal"    => $this->promo_m->count_all(),
-            "recordsFiltered" => $this->promo_m->count_filtered(),
+            "recordsTotal"    => $this->article_m->count_all(),
+            "recordsFiltered" => $this->article_m->count_filtered(),
             "data"            => $data,
         );
 
         echo json_encode($output);
     }
 
+    public function adddata()
+    {
+        $data['listCategory'] = $this->article_m->select_category()->result();
+        $this->template->display('admin/article/add', $data);
+    }
+
     public function savedata()
     {
-        $jam = time();
+        $jam  = time();
+        $name = seo_title(stripHTMLtags($this->input->post('name', 'true')));
 
-        $config['file_name']     = 'Promo_' . $jam . '.jpg';
-        $config['upload_path']   = './img/promo_folder/';
+        $config['file_name']     = 'Article_' . $name . '_' . $jam . '.jpg';
+        $config['upload_path']   = './img/article_folder/';
         $config['allowed_types'] = 'jpg|png|gif|jpeg';
         $config['overwrite']     = true;
         $config['max_size']      = 0;
@@ -79,8 +84,8 @@ class Promo extends CI_Controller
         $configThumb['source_image']   = '';
         $configThumb['maintain_ratio'] = true;
         $configThumb['overwrite']      = true;
-        $configThumb['width']          = 900;
-        $configThumb['height']         = 700;
+        $configThumb['width']          = 700;
+        $configThumb['height']         = 400;
         $this->load->library('image_lib');
 
         if (!$this->upload->do_upload('foto')) {
@@ -92,24 +97,29 @@ class Promo extends CI_Controller
             $configThumb['source_image'] = $upload_data['full_path'];
             $this->image_lib->initialize($configThumb);
             $this->image_lib->resize();
-            $this->promo_m->insert_data();
+
+            $this->article_m->insert_data();
             $response['status'] = 'success';
         }
+
         echo json_encode($response);
     }
 
-    public function get_data($id)
+    public function editdata($article_id)
     {
-        $data = $this->promo_m->select_by_id($id)->row();
-        echo json_encode($data);
+        $data['listCategory'] = $this->article_m->select_category()->result();
+        $data['detail']       = $this->article_m->select_by_id($article_id)->row();
+        $this->template->display('admin/article/edit', $data);
     }
 
     public function updatedata()
     {
         if (!empty($_FILES['foto']['name'])) {
-            $jam = time();
-            $config['file_name']     = 'Promo_' . $jam . '.jpg';
-            $config['upload_path']   = './img/promo_folder/';
+            $jam  = time();
+            $name = seo_title(stripHTMLtags($this->input->post('name', 'true')));
+
+            $config['file_name']     = 'Article_' . $name . '_' . $jam . '.jpg';
+            $config['upload_path']   = './img/article_folder/';
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
             $config['overwrite']     = true;
             $config['max_size']      = 0;
@@ -121,8 +131,8 @@ class Promo extends CI_Controller
             $configThumb['source_image']   = '';
             $configThumb['maintain_ratio'] = true;
             $configThumb['overwrite']      = true;
-            $configThumb['width']          = 900;
-            $configThumb['height']         = 700;
+            $configThumb['width']          = 700;
+            $configThumb['height']         = 400;
             $this->load->library('image_lib');
 
             if (!$this->upload->do_upload('foto')) {
@@ -135,11 +145,11 @@ class Promo extends CI_Controller
                 $this->image_lib->initialize($configThumb);
                 $this->image_lib->resize();
 
-                $this->promo_m->update_data();
+                $this->article_m->update_data();
                 $response['status'] = 'success';
             }
         } else {
-            $this->promo_m->update_data();
+            $this->article_m->update_data();
             $response['status'] = 'success';
         }
 
@@ -148,8 +158,8 @@ class Promo extends CI_Controller
 
     public function deletedata($id)
     {
-        $this->promo_m->delete_data($id);
+        $this->article_m->delete_data($id);
         echo json_encode(array("status" => true));
     }
 }
-/* Location: ./application/controller/admin/Promo.php */
+/* Location: ./application/controller/admin/Article.php */

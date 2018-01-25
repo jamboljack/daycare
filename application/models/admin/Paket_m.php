@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Category_m extends CI_Model
+class Paket_m extends CI_Model
 {
-    public $table         = 'alifa_category';
-    public $column_order  = array(null, null, 'category_no', 'category_name', null);
-    public $column_search = array('category_name');
-    public $order         = array('category_no' => 'asc');
+    public $table         = 'alifa_paket';
+    public $column_order  = array(null, null, 'paket_name', 'paket_schedule');
+    public $column_search = array('paket_name', 'paket_schedule');
+    public $order         = array('paket_name' => 'asc');
 
     public function __construct()
     {
@@ -70,51 +70,47 @@ class Category_m extends CI_Model
     public function insert_data()
     {
         $data = array(
-            'category_name'   => strtoupper($this->input->post('name', 'true')),
-            'category_seo'    => seo_title(stripHTMLtags($this->input->post('name', 'true'))),
-            'category_update' => date('Y-m-d H:i:s'),
+            'user_username' => $this->session->userdata('username'),
+            'paket_name'    => strtoupper(trim(stripHTMLtags($this->input->post('name', 'true')))),
+            'paket_seo'     => seo_title(stripHTMLtags($this->input->post('name', 'true'))),
+            'paket_schedule'=> strtoupper(trim(stripHTMLtags($this->input->post('schedule', 'true')))),
+            'paket_desc'    => trim($this->input->post('desc', 'true')),
+            'paket_update'  => date('Y-m-d H:i:s'),
         );
 
-        $this->db->insert('alifa_category', $data);
+        $this->db->insert('alifa_paket', $data);
     }
 
     public function select_by_id($id)
     {
         $this->db->select('*');
-        $this->db->from('alifa_category');
-        $this->db->where('category_id', $id);
+        $this->db->from('alifa_paket');
+        $this->db->where('paket_id', $id);
 
         return $this->db->get();
     }
 
     public function update_data()
     {
-        $category_id = $this->input->post('id', 'true');
+        $paket_id = $this->input->post('id', 'true');
+
         $data = array(
-            'category_name'   => strtoupper($this->input->post('name', 'true')),
-            'category_seo'    => seo_title(stripHTMLtags($this->input->post('name', 'true'))),
-            'category_update' => date('Y-m-d H:i:s'),
+            'user_username' => $this->session->userdata('username'),
+            'paket_name'    => strtoupper(trim(stripHTMLtags($this->input->post('name', 'true')))),
+            'paket_seo'     => seo_title(stripHTMLtags($this->input->post('name', 'true'))),
+            'paket_schedule'=> strtoupper(trim(stripHTMLtags($this->input->post('schedule', 'true')))),
+            'paket_desc'    => trim($this->input->post('desc', 'true')),
+            'paket_update'  => date('Y-m-d H:i:s'),
         );
-        $this->db->where('category_id', $category_id);
-        $this->db->update('alifa_category', $data);
+
+        $this->db->where('paket_id', $paket_id);
+        $this->db->update('alifa_paket', $data);
     }
 
     public function delete_data($id)
     {
-        $this->db->where('category_id', $id);
-        $this->db->delete('alifa_category');
-    }
-
-    public function atas($id, $posisi, $posisi_baru)
-    {
-        $this->db->query("UPDATE alifa_category SET category_no='$posisi' WHERE category_no = '$posisi_baru'");
-        $this->db->query("UPDATE alifa_category SET category_no='$posisi_baru' WHERE category_id='$id'");
-    }
-
-    public function bawah($id, $posisi, $posisi_baru)
-    {
-        $this->db->query("UPDATE alifa_category SET category_no='$posisi' WHERE category_no='$posisi_baru'");
-        $this->db->query("UPDATE alifa_category SET category_no='$posisi_baru' WHERE category_id='$id'");
+        $this->db->where('paket_id', $id);
+        $this->db->delete('alifa_paket');
     }
 }
-/* Location: ./application/models/admin/Category_m.php */
+/* Location: ./application/models/admin/Paket_m.php */
