@@ -3967,15 +3967,15 @@ background: #1caf9a !important;
   color: #FFF;
 }
 .login-container.lightmode {
-  /*background: url("../../img/backlogin.jpg");*/
-  background-color: #FFF;
+  background: url("../../img/wall-1.jpg");
+  /*background-color: #FFF;*/
   /*height: 100%;*/
-  /*background-position: center;
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;*/
-/*   background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-    background-position: center; */
+  background-position: center; 
 }
 .login-container.lightmode .login-box .login-body {
   background-color: #1f1f1f;

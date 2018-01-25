@@ -33,17 +33,20 @@ class Gallery extends CI_Controller
 
         foreach ($List as $r) {
             $no++;
-            $row       = array();
+            $row        = array();
             $gallery_id = $r->gallery_id;
-
-            $row[] = '	<button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $gallery_id . "'" . ')"><i class="fa fa-edit"></i></button>
-            			<a onclick="hapusData(' . $gallery_id . ')"><button class="btn btn-danger btn-xs" type="button" title="Delete Data"><i class="fa fa-times-circle"></i></button>';
+            $linkDetail = site_url('admin/gallery/listdetail/'.$gallery_id);
+            $row[]      = ' <button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $gallery_id . "'" . ')"><i class="fa fa-edit"></i></button>
+                        <a href="' . $linkDetail . '">
+                        <button type="button" class="btn btn-warning btn-xs" title="Detail Galeri"><i class="fa fa-list"></i></button></a>
+                        <a onclick="hapusData(' . $gallery_id . ')"><button class="btn btn-danger btn-xs" type="button" title="Delete Data"><i class="fa fa-times-circle"></i></button>';
 
             $row[] = $no;
-            $row[] = date('d-m-Y' ,strtotime($r->gallery_post));
+            $row[] = date('d-m-Y', strtotime($r->gallery_post));
             $row[] = $r->gallery_name;
             $row[] = $r->category_gallery_name;
             $row[] = '<img src=' . base_url('img/gallery_folder/' . $r->gallery_image) . ' width="50%">';
+            $row[] = $r->jumlah;
 
             $data[] = $row;
         }
@@ -103,7 +106,7 @@ class Gallery extends CI_Controller
     public function updatedata()
     {
         if (!empty($_FILES['foto']['name'])) {
-            $jam = time();
+            $jam                     = time();
             $config['file_name']     = 'Gallery_' . $jam . '.jpg';
             $config['upload_path']   = './img/gallery_folder/';
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
@@ -146,6 +149,12 @@ class Gallery extends CI_Controller
     {
         $this->gallery_m->delete_data($id);
         echo json_encode(array("status" => true));
+    }
+
+    public function listdetail($gallery_id)
+    {
+        $data['listData'] = $this->gallery_m->select_all_by_id($gallery)->result();
+        $this->template->display('admin/master/gallery_detail_view', $data);
     }
 }
 /* Location: ./application/controller/admin/Gallery.php */

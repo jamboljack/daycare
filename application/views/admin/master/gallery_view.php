@@ -80,12 +80,13 @@
                         <table class="table table-striped table-hover" id="tableData">
                             <thead>
                                 <tr>
-                                    <th width="10%"></th>
+                                    <th width="12%"></th>
                                     <th width="5%">No</th>
                                     <th width="10%">Tgl. Post</th>
                                     <th>Nama Galeri Foto</th>
                                     <th width="15%">Kategori</th>
-                                    <th width="30%">Gambar</th>
+                                    <th width="20%">Gambar</th>
+                                    <th width="5%">Jumlah</th>
                                 </tr>
                             </thead>
 
@@ -111,7 +112,6 @@ var table;
 $(document).ready(function() {
     table = $('#tableData').DataTable({
         "pageLength" : 10,
-        "searching": false,
         "responsive": true,
         "processing": false,
         "serverSide": true,
@@ -122,7 +122,7 @@ $(document).ready(function() {
         },
         "columnDefs": [
         {
-            "targets": [ 0, 1, 5],
+            "targets": [ 0, 1, 5, 6],
             "orderable": false,
         },
         ],
@@ -136,8 +136,6 @@ $(document).ready(function() {
 function resetformInput() {
     $("#name").val('');
     $("#lstCategory").val('');
-    $path = '<?=base_url();?>img/';
-    $('.fileinput').attr('src', $path+'no-image.png');
 
     var MValid = $("#formInput");
     MValid.validate().resetForm();
