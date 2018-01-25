@@ -1,20 +1,20 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>backend/js/sweetalert2.css">
-<script src="<?php echo base_url(); ?>backend/js/sweetalert2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?=base_url();?>backend/js/sweetalert2.css">
+<script src="<?=base_url();?>backend/js/sweetalert2.min.js"></script>
 
 <div class="page-content-wrapper">
-    <div class="page-content">            
+    <div class="page-content">
         <h3 class="page-title">
             Users
         </h3>
         <div class="page-bar">
-            <ul class="page-breadcrumb">                    
+            <ul class="page-breadcrumb">
                 <li>
                     <i class="fa fa-home"></i>
-                    <a href="<?php echo site_url('admin/home'); ?>">Dashboard</a>
+                    <a href="<?=site_url('admin/home');?>">Dashboard</a>
                     <i class="fa fa-angle-right"></i>
-                </li>                
+                </li>
                 <li>
-                    <a href="<?php echo site_url('admin/users'); ?>">Users</a>
+                    <a href="<?=site_url('admin/users');?>">Users</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
@@ -23,24 +23,24 @@
             </ul>
             <div class="page-toolbar">
                 <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt">
-                    <i class="icon-calendar">&nbsp; </i><span class="uppercase visible-lg-inline-block"><?php echo tgl_indo(date('Y-m-d')); ?></span>
+                    <i class="icon-calendar">&nbsp; </i><span class="uppercase visible-lg-inline-block"><?=tgl_indo(date('Y-m-d'));?></span>
                 </div>
             </div>
-        </div>            
-                        
+        </div>
+
         <div class="row">
             <div class="col-md-12">
 
-                <div class="portlet box red-thunderbird">
+                <div class="portlet box grey-steel">
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="fa fa-edit"></i> Form Edit User
                         </div>
                     </div>
-                    
+
                     <div class="portlet-body form">
                         <form class="form-horizontal" method="post" id="formInput" name="formInput" role="form">
-                        <input type="hidden" name="id" value="<?php echo $detail->user_username; ?>">
+                        <input type="hidden" name="id" value="<?=$detail->user_username;?>">
 
                             <div class="form-body">
                                 <div class="row">
@@ -48,7 +48,7 @@
                                         <div class="form-group form-md-line-input">
                                             <label class="col-md-3 control-label">Username</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="username" value="<?php echo $detail->user_username; ?>" autocomplete="off" readonly  />
+                                                <input type="text" class="form-control" name="username" value="<?=$detail->user_username;?>" autocomplete="off" readonly  />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -63,82 +63,18 @@
                                             <div class="col-md-9">
                                                 <div class="input-icon right">
                                                     <i class="fa"></i>
-                                                    <input type="text" class="form-control" name="name" value="<?php echo $detail->user_name; ?>" placeholder="Input Nama Lengkap" autocomplete="off" autofocus />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Tgl. Lahir</label>
-                                            <div class="col-md-9">
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <select class="form-control" name="lstDate">
-                                                            <?php 
-                                                            for($i=1; $i<=31; $i++) { 
-                                                                if ($i == $detail->user_date) {
-                                                            ?>
-                                                            <option value="<?php echo $i; ?>" selected><?php echo $i; ?></option>
-                                                            <?php } else { ?>
-                                                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                            <?php } 
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <select class="form-control" name="lstMonth">
-                                                            <option value="1" <?php if ($detail->user_month == '1') { echo "selected"; } ?>>Januari</option>
-                                                            <option value="2" <?php if ($detail->user_month == '2') { echo "selected"; } ?>>Februari</option>
-                                                            <option value="3" <?php if ($detail->user_month == '3') { echo "selected"; } ?>>Maret</option>
-                                                            <option value="4" <?php if ($detail->user_month == '4') { echo "selected"; } ?>>April</option>
-                                                            <option value="5" <?php if ($detail->user_month == '5') { echo "selected"; } ?>>Mei</option>
-                                                            <option value="6" <?php if ($detail->user_month == '6') { echo "selected"; } ?>>Juni</option>
-                                                            <option value="7" <?php if ($detail->user_month == '7') { echo "selected"; } ?>>Juli</option>
-                                                            <option value="8" <?php if ($detail->user_month == '8') { echo "selected"; } ?>>Agustus</option>
-                                                            <option value="9" <?php if ($detail->user_month == '9') { echo "selected"; } ?>>September</option>
-                                                            <option value="10" <?php if ($detail->user_month == '10') { echo "selected"; } ?>>Oktober</option>
-                                                            <option value="11" <?php if ($detail->user_month == '11') { echo "selected"; } ?>>November</option>
-                                                            <option value="12" <?php if ($detail->user_month == '12') { echo "selected"; } ?>>Desember</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <select class="form-control" name="lstYear">
-                                                            <?php 
-                                                            for($i=date('Y'); $i >= 1900; $i-=1) { 
-                                                                if ($i == $detail->user_year) {
-                                                            ?>
-                                                            <option value="<?php echo $i; ?>" selected><?php echo $i; ?></option>
-                                                            <?php } else { ?>
-                                                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                                            <?php } 
-                                                            }
-                                                            ?>
-                                                        </select>
-                                                    </div>
+                                                    <input type="text" class="form-control" name="name" value="<?=$detail->user_name;?>" placeholder="Input Nama Lengkap" autocomplete="off" autofocus />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">Jenis Kelamin</label>
-                                            <div class="col-md-5">
-                                                <div class="input-icon right">
-                                                    <i class="fa"></i>
-                                                    <select class="form-control" name="lstGender">
-                                                        <option value="">- Pilih -</option>
-                                                        <option value="L" <?php if ($detail->user_gender == 'L') { echo "selected"; } ?>>Laki-Laki</option>
-                                                        <option value="P" <?php if ($detail->user_gender == 'P') { echo "selected"; } ?>>Perempuan</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
                                             <label class="col-md-3 control-label">Handphone</label>
                                             <div class="col-md-9">
                                                 <div class="input-icon right">
                                                     <i class="fa"></i>
-                                                    <input type="text" class="form-control" name="mobile" value="<?php echo $detail->user_mobile; ?>" maxlength="12" placeholder="Input Handphone" autocomplete="off"/>
+                                                    <input type="text" class="form-control" name="mobile" value="<?=$detail->user_mobile;?>" maxlength="12" placeholder="Input Handphone" autocomplete="off"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -147,7 +83,7 @@
                                             <div class="col-md-9">
                                                 <div class="input-icon right">
                                                     <i class="fa"></i>
-                                                    <input type="text" class="form-control" name="email" value="<?php echo $detail->user_email; ?>" placeholder="Input Email" autocomplete="off" readonly/>
+                                                    <input type="text" class="form-control" name="email" value="<?=$detail->user_email;?>" placeholder="Input Email" autocomplete="off" readonly/>
                                                 </div>
                                             </div>
                                         </div>
@@ -158,8 +94,8 @@
                                                     <i class="fa"></i>
                                                     <select class="form-control" name="lstLevel">
                                                         <option value="">- Pilih -</option>
-                                                        <option value="Admin" <?php if ($detail->user_level == 'Admin') { echo "selected"; } ?>>Admin</option>
-                                                        <option value="Operator" <?php if ($detail->user_level == 'Operator') { echo "selected"; } ?>>Operator</option>
+                                                        <option value="Admin" <?php if ($detail->user_level == 'Admin') {echo "selected";}?>>Admin</option>
+                                                        <option value="Operator" <?php if ($detail->user_level == 'Operator') {echo "selected";}?>>Operator</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -171,8 +107,8 @@
                                                     <i class="fa"></i>
                                                     <select class="form-control" name="lstStatus">
                                                         <option value="">- Pilih -</option>
-                                                        <option value="Active" <?php if ($detail->user_status == 'Active') { echo "selected"; } ?>>Active</option>
-                                                        <option value="Non Active" <?php if ($detail->user_status == 'Non Active') { echo "selected"; } ?>>Non Active</option>
+                                                        <option value="Aktif" <?php if ($detail->user_status == 'Aktif') {echo "selected";}?>>Aktif</option>
+                                                        <option value="Tidak Aktif" <?php if ($detail->user_status == 'Tidak Aktif') {echo "selected";}?>>Tidak Aktif</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -183,7 +119,7 @@
 
                             <div class="form-actions" align="center">
                                 <button type="submit" class="btn green"><i class="fa fa-floppy-o"></i> Update</button>
-                                <a href="<?php echo site_url('admin/users'); ?>" class="btn btn-warning"><i class="fa fa-times"></i> Batal</a>
+                                <a href="<?=site_url('admin/users');?>" class="btn btn-warning"><i class="fa fa-times"></i> Batal</a>
                             </div>
 
                         </form>
@@ -193,16 +129,16 @@
             </div>
         </div>
 
-    </div>            
+    </div>
 </div>
 
-<script type="text/javascript" src="<?php echo base_url(); ?>backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
     var form        = $('#formInput');
     var error       = $('.alert-danger', form);
     var success     = $('.alert-success', form);
-    
+
     $("#formInput").validate({
         errorElement: 'span',
         errorClass: 'help-block help-block-error',
@@ -211,9 +147,6 @@ $(document).ready(function() {
         rules: {
             name: {
                 required: true, minlength: 5
-            },
-            lstGender: {
-                required: true
             },
             mobile: {
                 required: true, minlength: 11, number: true
@@ -228,9 +161,6 @@ $(document).ready(function() {
         messages: {
             name: {
                 required:'Nama Lengkap harus diisi', minlength:'Minimal 5 Karakter'
-            },
-            lstGender: {
-                required:'Jenis Kelamin harus dipilih'
             },
             mobile: {
                 required:'Handphone harus diisi', minlength:'Minimal 11 Digit', number:'Hanya Angka'
@@ -249,7 +179,7 @@ $(document).ready(function() {
         },
         errorPlacement: function (error, element) {
             var icon = $(element).parent('.input-icon').children('i');
-            icon.removeClass('fa-check').addClass("fa-warning");  
+            icon.removeClass('fa-check').addClass("fa-warning");
             icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
         },
         highlight: function (element) {
@@ -266,7 +196,7 @@ $(document).ready(function() {
         submitHandler: function(form) {
             dataString = $("#formInput").serialize();
             $.ajax({
-                url: "<?php echo site_url('admin/users/updatedata/'.$this->uri->segment(4)); ?>",
+                url: "<?=site_url('admin/users/updatedata');?>",
                 type: "POST",
                 data: dataString,
                 dataType: 'JSON',
@@ -278,7 +208,7 @@ $(document).ready(function() {
                         type: "success",
                         timer: 2000
                     }, function() {
-                        window.location="<?php echo site_url('admin/users'); ?>";
+                        window.location="<?=site_url('admin/users');?>";
                     });
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

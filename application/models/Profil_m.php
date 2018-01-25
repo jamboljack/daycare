@@ -12,7 +12,7 @@ class Profil_m extends CI_Model
     public function select_detail($username)
     {
         $this->db->select('*');
-        $this->db->from('pasar_users');
+        $this->db->from('alifa_users');
         $this->db->where('user_username', $username);
 
         return $this->db->get();
@@ -24,16 +24,12 @@ class Profil_m extends CI_Model
 
         $data = array(
             'user_name'        => ucwords(strtolower(stripHTMLtags($this->input->post('name', 'true')))),
-            'user_date'        => trim($this->input->post('lstDate', 'true')),
-            'user_month'       => trim($this->input->post('lstMonth', 'true')),
-            'user_year'        => trim($this->input->post('lstYear', 'true')),
-            'user_gender'      => trim($this->input->post('lstGender', 'true')),
             'user_mobile'      => trim(stripHTMLtags($this->input->post('mobile', 'true'))),
-            'user_date_update' => date('Y-m-d H:i:s')
+            'user_date_update' => date('Y-m-d H:i:s'),
         );
 
         $this->db->where('user_username', $username);
-        $this->db->update('pasar_users', $data);
+        $this->db->update('alifa_users', $data);
     }
 
     public function update_avatar()
@@ -41,11 +37,11 @@ class Profil_m extends CI_Model
         $username = $this->session->userdata('username');
         $data     = array(
             'user_avatar'      => $this->upload->file_name,
-            'user_date_update' => date('Y-m-d H:i:s')
+            'user_date_update' => date('Y-m-d H:i:s'),
         );
 
         $this->db->where('user_username', $username);
-        $this->db->update('pasar_users', $data);
+        $this->db->update('alifa_users', $data);
     }
 
     public function update_password()
@@ -55,11 +51,11 @@ class Profil_m extends CI_Model
 
         $data = array(
             'user_password'    => sha1($password),
-            'user_date_update' => date('Y-m-d H:i:s')
+            'user_date_update' => date('Y-m-d H:i:s'),
         );
 
         $this->db->where('user_username', $username);
-        $this->db->update('pasar_users', $data);
+        $this->db->update('alifa_users', $data);
     }
 }
 /* Location: ./application/model/admin/Profil_m.php */

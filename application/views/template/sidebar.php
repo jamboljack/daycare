@@ -553,6 +553,35 @@ if ($uri == 'home') {
     $year             = '';
     $student          = '';
     $users            = 'active';
+} else {
+    $dashboard        = 'active';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
 }
 ?>
 <div class="page-sidebar-wrapper">

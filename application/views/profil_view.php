@@ -77,66 +77,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label">Tanggal Lahir</label>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <select class="form-control" name="lstDate">
-                                                                <?php
-                                                                for ($i = 1; $i <= 31; $i++) {
-                                                                    if ($i == $detail->user_date) {
-                                                                ?>
-                                                                <option value="<?=$i;?>" selected><?=$i;?></option>
-                                                                <?php } else {?>
-                                                                <option value="<?=$i;?>"><?=$i;?></option>
-                                                                <?php }
-                                                                }
-                                                                ?>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <select class="form-control" name="lstMonth">
-                                                                <option value="1" <?php if ($detail->user_month == '1') {echo "selected";}?>>Januari</option>
-                                                                <option value="2" <?php if ($detail->user_month == '2') {echo "selected";}?>>Februari</option>
-                                                                <option value="3" <?php if ($detail->user_month == '3') {echo "selected";}?>>Maret</option>
-                                                                <option value="4" <?php if ($detail->user_month == '4') {echo "selected";}?>>April</option>
-                                                                <option value="5" <?php if ($detail->user_month == '5') {echo "selected";}?>>Mei</option>
-                                                                <option value="6" <?php if ($detail->user_month == '6') {echo "selected";}?>>Juni</option>
-                                                                <option value="7" <?php if ($detail->user_month == '7') {echo "selected";}?>>Juli</option>
-                                                                <option value="8" <?php if ($detail->user_month == '8') {echo "selected";}?>>Agustus</option>
-                                                                <option value="9" <?php if ($detail->user_month == '9') {echo "selected";}?>>September</option>
-                                                                <option value="10" <?php if ($detail->user_month == '10') {echo "selected";}?>>Oktober</option>
-                                                                <option value="11" <?php if ($detail->user_month == '11') {echo "selected";}?>>November</option>
-                                                                <option value="12" <?php if ($detail->user_month == '12') {echo "selected";}?>>Desember</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <select class="form-control" name="lstYear">
-                                                                <?php
-                                                                for ($i = date('Y'); $i >= 1900; $i -= 1) {
-                                                                    if ($i == $detail->user_year) {
-                                                                ?>
-                                                                <option value="<?=$i;?>" selected><?=$i;?></option>
-                                                                <?php } else {?>
-                                                                <option value="<?=$i;?>"><?=$i;?></option>
-                                                                <?php }
-                                                                }
-                                                                ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Jenis Kelamin</label>
-                                                    <div class="input-icon right">
-                                                    <i class="fa"></i>
-                                                        <select class="form-control" name="lstGender">
-                                                            <option value="">- Pilih -</option>
-                                                            <option value="L" <?php if ($detail->user_gender == 'L') {echo "selected";}?>>Laki-Laki</option>
-                                                            <option value="P" <?php if ($detail->user_gender == 'P') {echo "selected";}?>>Perempuan</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
                                                     <label class="control-label">No. Handphone</label>
                                                     <div class="input-icon right">
                                                         <i class="fa"></i>
@@ -333,7 +273,7 @@ $(document).ready(function() {
             foto: { required: true }
         },
         messages: {
-            foto: { required: 'Pilih Avatar' }  
+            foto: { required: 'Pilih Avatar' }
         },
         invalidHandler: function (event, validator) {
             success.hide();
@@ -418,11 +358,11 @@ $(document).ready(function() {
             oldpassword: {
                 required: true,
                 remote: {
-                    url: "<?=site_url('profil/check_old_password'); ?>",
+                    url: "<?=site_url('profil/check_old_password');?>",
                     type: "post",
                     data: {
-                        oldpassword: function() { 
-                            return $("#oldpassword").val(); 
+                        oldpassword: function() {
+                            return $("#oldpassword").val();
                         }
                     }
                 }

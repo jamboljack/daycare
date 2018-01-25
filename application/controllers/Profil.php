@@ -6,16 +6,16 @@ class Profil extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!$this->session->userdata('level') == 'Admin' && !$this->session->userdata('logged_in_pasarku')) {
+        if (!$this->session->userdata('logged_in_alifa')) {
             redirect(base_url());
         }
         $this->load->library('template');
-        $this->load->model('admin/profil_m');
+        $this->load->model('profil_m');
     }
 
     public function index()
     {
-        if ($this->session->userdata('level') == 'Admin' && $this->session->userdata('logged_in_pasarku')) {
+        if ($this->session->userdata('logged_in_alifa')) {
             $username       = $this->session->userdata('username');
             $data['detail'] = $this->profil_m->select_detail($username)->row();
             $this->template->display('profil_view', $data);
@@ -73,7 +73,7 @@ class Profil extends CI_Controller
     private function password_exists($oldpassword)
     {
         $this->db->where('user_password', $oldpassword);
-        $query = $this->db->get('pasar_users');
+        $query = $this->db->get('alifa_users');
         if ($query->num_rows() > 0) {
             return true;
         } else {
