@@ -13,6 +13,13 @@ if ($uri == 'home') {
     $visimisi       = '';
     $team           = '';
     $employee       = '';
+    $product        = '';
+    $promo          = '';
+    $gal            = '';
+    $span_gal_1     = '';
+    $span_gal_2     = '';
+    $category_gallery = '';
+    $gallery        = '';
 } elseif ($uri == 'slider') {
     $dashboard      = '';
     $master         = 'active open';
@@ -24,6 +31,13 @@ if ($uri == 'home') {
     $visimisi       = '';
     $team           = '';
     $employee       = '';
+    $product        = '';
+    $promo          = '';
+    $gal            = '';
+    $span_gal_1     = '';
+    $span_gal_2     = '';
+    $category_gallery = '';
+    $gallery        = '';
 } elseif ($uri == 'about') {
     $dashboard      = '';
     $master         = 'active open';
@@ -35,6 +49,13 @@ if ($uri == 'home') {
     $visimisi       = '';
     $team           = '';
     $employee       = '';
+    $product        = '';
+    $promo          = '';
+    $gal            = '';
+    $span_gal_1     = '';
+    $span_gal_2     = '';
+    $category_gallery = '';
+    $gallery        = '';
 } elseif ($uri == 'img_about') {
     $dashboard      = '';
     $master         = 'active open';
@@ -46,6 +67,13 @@ if ($uri == 'home') {
     $visimisi       = '';
     $team           = '';
     $employee       = '';
+    $product        = '';
+    $promo          = '';
+    $gal            = '';
+    $span_gal_1     = '';
+    $span_gal_2     = '';
+    $category_gallery = '';
+    $gallery        = '';
 } elseif ($uri == 'visimisi') {
     $dashboard      = '';
     $master         = 'active open';
@@ -57,6 +85,13 @@ if ($uri == 'home') {
     $visimisi       = 'active';
     $team           = '';
     $employee       = '';
+    $product        = '';
+    $promo          = '';
+    $gal            = '';
+    $span_gal_1     = '';
+    $span_gal_2     = '';
+    $category_gallery = '';
+    $gallery        = '';
 } elseif ($uri == 'team') {
     $dashboard      = '';
     $master         = 'active open';
@@ -68,6 +103,13 @@ if ($uri == 'home') {
     $visimisi       = '';
     $team           = 'active';
     $employee       = '';
+    $product        = '';
+    $promo          = '';
+    $gal            = '';
+    $span_gal_1     = '';
+    $span_gal_2     = '';
+    $category_gallery = '';
+    $gallery        = '';
 } elseif ($uri == 'employee') {
     $dashboard      = '';
     $master         = 'active open';
@@ -79,6 +121,85 @@ if ($uri == 'home') {
     $visimisi       = '';
     $team           = '';
     $employee       = 'active';
+    $product        = '';
+    $promo          = '';
+    $gal            = '';
+    $span_gal_1     = '';
+    $span_gal_2     = '';
+    $category_gallery = '';
+    $gallery        = '';
+} elseif ($uri == 'product') {
+    $dashboard      = '';
+    $master         = '';
+    $span_master_1  = '';
+    $span_master_2  = '';
+    $slider         = '';
+    $about          = '';
+    $img_about      = '';
+    $visimisi       = '';
+    $team           = '';
+    $employee       = '';
+    $product        = 'active';
+    $promo          = '';
+    $gal            = '';
+    $span_gal_1     = '';
+    $span_gal_2     = '';
+    $category_gallery = '';
+    $gallery        = '';
+} elseif ($uri == 'promo') {
+    $dashboard      = '';
+    $master         = '';
+    $span_master_1  = '';
+    $span_master_2  = '';
+    $slider         = '';
+    $about          = '';
+    $img_about      = '';
+    $visimisi       = '';
+    $team           = '';
+    $employee       = '';
+    $product        = '';
+    $promo          = 'active';
+    $gal            = '';
+    $span_gal_1     = '';
+    $span_gal_2     = '';
+    $category_gallery = '';
+    $gallery        = '';
+} elseif ($uri == 'category_gallery') {
+    $dashboard      = '';
+    $master         = '';
+    $span_master_1  = '';
+    $span_master_2  = '';
+    $slider         = '';
+    $about          = '';
+    $img_about      = '';
+    $visimisi       = '';
+    $team           = '';
+    $employee       = '';
+    $product        = '';
+    $promo          = '';
+    $gal            = 'active open';
+    $span_gal_1     = '<span class="selected"></span>';
+    $span_gal_2     = 'open';
+    $category_gallery = 'active';
+    $gallery        = '';
+} elseif ($uri == 'gallery') {
+    $dashboard      = '';
+    $master         = '';
+    $span_master_1  = '';
+    $span_master_2  = '';
+    $slider         = '';
+    $about          = '';
+    $img_about      = '';
+    $visimisi       = '';
+    $team           = '';
+    $employee       = '';
+    $product        = '';
+    $promo          = '';
+    $gal            = 'active open';
+    $span_gal_1     = '<span class="selected"></span>';
+    $span_gal_2     = 'open';
+    $category_gallery = '';
+    $gallery        = 'active';
 }
 ?>
 <div class="page-sidebar-wrapper">
@@ -136,6 +257,35 @@ if ($uri == 'home') {
                 </ul>
             </li>
             <?php } ?>
+            <li class="heading">
+                <h3 class="uppercase">CONTENT</h3>
+            </li>
+            <li class="tooltips <?=$product;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Product & Facility">
+                <a href="<?=site_url('admin/product');?>">
+                    <i class="fa fa-archive"></i><span class="title"> Produk & Fasilitas</span>
+                </a>
+            </li>
+            <li class="tooltips <?=$promo;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Promo">
+                <a href="<?=site_url('admin/promo');?>">
+                    <i class="fa fa-tags"></i><span class="title"> Promo</span>
+                </a>
+            </li>
+            <li class="<?=$gal;?>">
+                <a href="#">
+                    <i class="fa fa-image"></i>
+                    <span class="title"> Galeri</span>
+                    <?=$span_gal_1;?>
+                    <span class="arrow <?=$span_gal_2;?>"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="<?=$category_gallery;?>">
+                        <a href="<?=site_url('admin/category_gallery');?>"><i class="fa fa-arrow-circle-o-right"></i> Kategori Galeri</a>
+                    </li>
+                    <li class="<?=$gallery;?>">
+                        <a href="<?=site_url('admin/gallery');?>"><i class="fa fa-arrow-circle-o-right"></i> Galeri Foto</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>

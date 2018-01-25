@@ -1,9 +1,9 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>backend/js/sweetalert2.css">
-<script src="<?php echo base_url(); ?>backend/js/sweetalert2.min.js"></script>
+<link href="<?=base_url();?>backend/js/sweetalert2.css" rel="stylesheet" type="text/css" />
+<script src="<?=base_url();?>backend/js/sweetalert2.min.js"></script>
 
 <script>
-    function hapusData(type_id) {
-        var id = type_id;
+    function hapusData(category_gallery_id) {
+        var id = category_gallery_id;
         swal({
             title: 'Anda Yakin ?',
             text: 'Data ini akan di Hapus !',
@@ -17,7 +17,7 @@
         }, function(isConfirm) {
             if (!isConfirm) return;
             $.ajax({
-                url : "<?php echo site_url('admin/type/deletedata')?>/"+id,
+                url : "<?=site_url('admin/category_gallery/deletedata')?>/"+id,
                 type: "POST",
                 dataType: "JSON",
                 success: function(data) {
@@ -39,52 +39,54 @@
 </script>
 
 <div class="page-content-wrapper">
-    <div class="page-content">            
-        <h3 class="page-title">Tipe UMKM</h3>
+    <div class="page-content">
+        <h3 class="page-title">Kategori Galeri</h3>
         <div class="page-bar">
-            <ul class="page-breadcrumb">                    
+            <ul class="page-breadcrumb">
                 <li>
                     <i class="fa fa-home"></i>
-                    <a href="<?php echo site_url('admin/home'); ?>">Dashboard</a>
+                    <a href="<?=site_url('admin/home');?>">Dashboard</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Umum</a>
+                    <a href="#">Galeri</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Tipe UMKM</a>
+                    <a href="#">Kategori Galeri</a>
                 </li>
             </ul>
             <div class="page-toolbar">
                 <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt">
-                    <i class="icon-calendar">&nbsp; </i><span class="uppercase visible-lg-inline-block"><?php echo tgl_indo(date('Y-m-d')); ?></span>
+                    <i class="icon-calendar">&nbsp; </i><span class="uppercase visible-lg-inline-block"><?=tgl_indo(date('Y-m-d'));?></span>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12">
-                <div class="portlet box red-thunderbird">
+                <div class="portlet box grey-steel">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-list"></i> Daftar Tipe UMKM
+                            <i class="fa fa-list"></i> Daftar Kategori Galeri
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#formModalAdd"><i class="fa fa-plus-circle"></i> Tambah</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#formModalAdd">
+                            <i class="fa fa-plus-circle"></i> Tambah
+                        </button>
                         <br><br>
                         <table class="table table-striped table-hover" id="tableData">
                             <thead>
                                 <tr>
                                     <th width="10%"></th>
                                     <th width="5%">No</th>
-                                    <th>Nama Tipe</th>
+                                    <th>Nama Kategori Galeri</th>
                                 </tr>
                             </thead>
-                            
+
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -96,38 +98,36 @@
     </div>
 </div>
 
-<script type="text/javascript" src="<?php echo base_url(); ?>backend/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>backend/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<?=base_url();?>backend/assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
 
 <script type="text/javascript">
 var table;
 $(document).ready(function() {
-    table = $('#tableData').DataTable({ 
+    table = $('#tableData').DataTable({
         "pageLength" : 10,
         "responsive": true,
         "processing": false,
         "serverSide": true,
         "order": [2, 'asc'],
         "ajax": {
-            "url": "<?php echo site_url('admin/type/data_list')?>",
+            "url": "<?=site_url('admin/category_gallery/data_list');?>",
             "type": "POST"
         },
         "columnDefs": [
-        { 
+        {
             "targets": [ 0, 1],
             "orderable": false,
         },
         ],
-    }); 
+    });
 });
-</script>
 
-<script type="text/javascript" src="<?php echo base_url(); ?>backend/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
-<script type="text/javascript">
 // Reset Form Input
 function resetformInput() {
     $("#name").val('');
-    
+
     var MValid = $("#formInput");
     MValid.validate().resetForm();
     MValid.find(".has-success, .has-waring, .fa-warning, .fa-check").removeClass("has-success has-warning fa-warning fa-check");
@@ -150,18 +150,18 @@ $(document).ready(function() {
     var form        = $('#formInput');
     var error       = $('.alert-danger', form);
     var success     = $('.alert-success', form);
-    
+
     $("#formInput").validate({
         errorElement: 'span',
         errorClass: 'help-block help-block-error',
         focusInvalid: false,
         ignore: "",
-        rules: { 
+        rules: {
             name: { required: true }
         },
-        messages: { 
+        messages: {
             name: {
-                required :'Nama Tipe harus diisi'
+                required :'Nama Kategori Galeri harus diisi'
             }
         },
         invalidHandler: function (event, validator) {
@@ -171,7 +171,7 @@ $(document).ready(function() {
         },
         errorPlacement: function (error, element) {
             var icon = $(element).parent('.input-icon').children('i');
-            icon.removeClass('fa-check').addClass("fa-warning");  
+            icon.removeClass('fa-check').addClass("fa-warning");
             icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
         },
         highlight: function (element) {
@@ -186,37 +186,33 @@ $(document).ready(function() {
             icon.removeClass("fa-warning").addClass("fa-check");
         },
         submitHandler: function(form) {
-            dataString = $('#formInput').serialize();
-
+            dataString = $("#formInput").serialize();
             $.ajax({
-                url: "<?php echo site_url('admin/type/savedata'); ?>",
+                url: '<?=site_url('admin/category_gallery/savedata');?>',
                 type: "POST",
-                dataType: 'JSON',
                 data: dataString,
                 success: function(data) {
-                    if (data.status) {
-                        swal({
-                            title:"Sukses",
-                            text: "Simpan Data Sukses",
-                            showConfirmButton: false,
-                            type: "success",
-                            timer: 2000
-                        });
-                    } else {
-                        swal({
-                            title:"Gagal",
-                            text: "Simpan Data Gagal",
-                            timer: 2000,
-                            showConfirmButton: false,
-                            type: "error"
-                        });
-                    }
+                    swal({
+                        title:"Sukses",
+                        text: "Simpan Data Sukses",
+                        timer: 2000,
+                        showConfirmButton: false,
+                        type: "success"
+                    });
                     $('#formModalAdd').modal('hide');
                     resetformInput();
                     reload_table();
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    alert('Error Simpan Data');
+                error: function() {
+                    swal({
+                        title:"Error",
+                        text: "Simpan Data Gagal",
+                        timer: 2000,
+                        showConfirmButton: false,
+                        type: "error"
+                    });
+                    $('#formModalAdd').modal('hide');
+                    resetformInput();
                 }
             });
         }
@@ -226,13 +222,12 @@ $(document).ready(function() {
 function edit_data(id) {
     $('#formEdit')[0].reset();
     $.ajax({
-        url : "<?php echo site_url('admin/type/get_data/'); ?>"+id,
+        url : "<?=site_url('admin/category_gallery/get_data/');?>"+id,
         type: "GET",
         dataType: "JSON",
         success: function(data) {
-            $('#id').val(data.type_id);
-            $('#type_name').val(data.type_name);
-
+            $('#id').val(data.category_gallery_id);
+            $('#category_gallery_name').val(data.category_gallery_name);
             $('#formModalEdit').modal('show');
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -245,18 +240,18 @@ $(document).ready(function() {
     var form        = $('#formEdit');
     var error       = $('.alert-danger', form);
     var success     = $('.alert-success', form);
-    
+
     $("#formEdit").validate({
         errorElement: 'span',
         errorClass: 'help-block help-block-error',
         focusInvalid: false,
         ignore: "",
-        rules: { 
+        rules: {
             name: { required: true }
         },
-        messages: { 
+        messages: {
             name: {
-                required :'Nama Tipe harus diisi'
+                required :'Nama Kategori Galeri harus diisi'
             }
         },
         invalidHandler: function (event, validator) {
@@ -266,7 +261,7 @@ $(document).ready(function() {
         },
         errorPlacement: function (error, element) {
             var icon = $(element).parent('.input-icon').children('i');
-            icon.removeClass('fa-check').addClass("fa-warning");  
+            icon.removeClass('fa-check').addClass("fa-warning");
             icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
         },
         highlight: function (element) {
@@ -281,37 +276,33 @@ $(document).ready(function() {
             icon.removeClass("fa-warning").addClass("fa-check");
         },
         submitHandler: function(form) {
-            dataString = $('#formEdit').serialize();
-
+            dataString = $("#formEdit").serialize();
             $.ajax({
-                url: "<?php echo site_url('admin/type/updatedata'); ?>",
+                url: '<?=site_url('admin/category_gallery/updatedata');?>',
                 type: "POST",
-                dataType: 'JSON',
                 data: dataString,
                 success: function(data) {
-                    if (data.status) {
-                        swal({
-                            title:"Sukses",
-                            text: "Update Data Sukses",
-                            showConfirmButton: false,
-                            type: "success",
-                            timer: 2000
-                        });
-                    } else {
-                        swal({
-                            title:"Gagal",
-                            text: "Update Data Gagal",
-                            timer: 2000,
-                            showConfirmButton: false,
-                            type: "error"
-                        });
-                    }
+                    swal({
+                        title:"Sukses",
+                        text: "Update Data Sukses",
+                        timer: 2000,
+                        showConfirmButton: false,
+                        type: "success"
+                    });
                     $('#formModalEdit').modal('hide');
                     resetformEdit();
                     reload_table();
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    alert('Error Update Data');
+                error: function() {
+                    swal({
+                        title:"Error",
+                        text: "Update Data Gagal",
+                        timer: 2000,
+                        showConfirmButton: false,
+                        type: "error"
+                    });
+                    $('#formModalEdit').modal('hide');
+                    resetformEdit();
                 }
             });
         }
@@ -323,16 +314,16 @@ $(document).ready(function() {
     <div class="modal-dialog">
         <div class="modal-content">
             <form role="form" action="" method="post" id="formInput" class="form-horizontal">
-            <div class="modal-header">                      
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Form Tambah Tipe UMKM</h4>
+                <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Form Tambah Kategori Galeri</h4>
             </div>
             <div class="modal-body">
-                <div class="form-group">                    
-                    <label class="col-md-3 control-label">Nama Tipe</label>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Nama Kategori Galeri</label>
                     <div class="col-md-9">
                         <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input Nama Tipe" name="name" id="name" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="Input Nama Kategori Galeri" name="name" id="name" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -342,25 +333,25 @@ $(document).ready(function() {
                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-times"></i> Batal</button>
             </div>
             </form>
-        </div>        
-    </div>    
+        </div>
+    </div>
 </div>
 
 <div class="modal" id="formModalEdit" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <form role="form" action="" method="post" id="formEdit" class="form-horizontal">
-            <div class="modal-header">                      
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><i class="fa fa-edit"></i> Form Edit Tipe UMKM</h4>
+                <h4 class="modal-title"><i class="fa fa-edit"></i> Form Edit Kategori Galeri</h4>
                 <input type="hidden" name="id" id="id">
             </div>
             <div class="modal-body">
-                <div class="form-group">                    
-                    <label class="col-md-3 control-label">Nama Tipe</label>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Nama Kategori Galeri</label>
                     <div class="col-md-9">
                         <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input Nama Kategori" name="name" id="type_name" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="Input Nama Kategori Galeri" name="name" id="category_gallery_name" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -370,6 +361,6 @@ $(document).ready(function() {
                 <button type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-times"></i> Batal</button>
             </div>
             </form>
-        </div>        
-    </div>    
+        </div>
+    </div>
 </div>

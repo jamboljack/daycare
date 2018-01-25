@@ -75,4 +75,4 @@ class Team extends CI_Controller
         echo json_encode(array("status" => true));
     }
 }
-/* Location: ./application/controller/admin/Courier.php */
+/* Location: ./application/controller/admin/Team.php */

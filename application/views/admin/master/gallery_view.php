@@ -3,8 +3,8 @@
 <link href="<?=base_url();?>backend/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css"/>
 
 <script>
-    function hapusData(promo_id) {
-        var id = promo_id;
+    function hapusData(gallery_id) {
+        var id = gallery_id;
         swal({
             title: 'Anda Yakin ?',
             text: 'Data ini akan di Hapus !',
@@ -18,7 +18,7 @@
         }, function(isConfirm) {
             if (!isConfirm) return;
             $.ajax({
-                url : "<?=site_url('admin/promo/deletedata')?>/"+id,
+                url : "<?=site_url('admin/gallery/deletedata')?>/"+id,
                 type: "POST",
                 dataType: "JSON",
                 success: function(data) {
@@ -41,7 +41,7 @@
 
 <div class="page-content-wrapper">
     <div class="page-content">
-        <h3 class="page-title">Promo</h3>
+        <h3 class="page-title">Galeri Foto</h3>
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
@@ -50,11 +50,11 @@
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Content</a>
+                    <a href="#">Galeri</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Promo</a>
+                    <a href="#">Galeri Foto</a>
                 </li>
             </ul>
             <div class="page-toolbar">
@@ -69,7 +69,7 @@
                 <div class="portlet box grey-steel">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-list"></i> Daftar Promo
+                            <i class="fa fa-list"></i> Daftar Galeri Foto
                         </div>
                     </div>
                     <div class="portlet-body">
@@ -83,7 +83,8 @@
                                     <th width="10%"></th>
                                     <th width="5%">No</th>
                                     <th width="10%">Tgl. Post</th>
-                                    <th>Nama Promo</th>
+                                    <th>Nama Galeri Foto</th>
+                                    <th width="15%">Kategori</th>
                                     <th width="30%">Gambar</th>
                                 </tr>
                             </thead>
@@ -110,17 +111,18 @@ var table;
 $(document).ready(function() {
     table = $('#tableData').DataTable({
         "pageLength" : 10,
+        "searching": false,
         "responsive": true,
         "processing": false,
         "serverSide": true,
         "order": [2, 'desc'],
         "ajax": {
-            "url": "<?=site_url('admin/promo/data_list');?>",
+            "url": "<?=site_url('admin/gallery/data_list');?>",
             "type": "POST"
         },
         "columnDefs": [
         {
-            "targets": [ 0, 1, 4],
+            "targets": [ 0, 1, 5],
             "orderable": false,
         },
         ],
@@ -133,6 +135,7 @@ $(document).ready(function() {
 // Reset Form Input
 function resetformInput() {
     $("#name").val('');
+    $("#lstCategory").val('');
     $path = '<?=base_url();?>img/';
     $('.fileinput').attr('src', $path+'no-image.png');
 
@@ -170,10 +173,10 @@ $(document).ready(function() {
         },
         messages: {
             name: {
-                required :'Nama Promo harus diisi'
+                required :'Nama Galeri harus diisi'
             },
             foto: {
-                required :'Gambar Promo harus dipilih'
+                required :'Gambar Galeri harus dipilih'
             }
         },
         invalidHandler: function (event, validator) {
@@ -200,7 +203,7 @@ $(document).ready(function() {
         submitHandler: function(form) {
             var formData = new FormData($('#formInput')[0]);
             $.ajax({
-                url: '<?=site_url('admin/promo/savedata');?>',
+                url: '<?=site_url('admin/gallery/savedata');?>',
                 type: "POST",
                 dataType: 'json',
                 data: formData,
@@ -250,17 +253,18 @@ function edit_data(id) {
     $('#formEdit')[0].reset();
 
     $.ajax({
-        url : "<?=site_url('admin/promo/get_data/');?>"+id,
+        url : "<?=site_url('admin/gallery/get_data/');?>"+id,
         type: "GET",
         dataType: "JSON",
         success: function(data) {
-            $('#id').val(data.promo_id);
-            $('#promo_name').val(data.promo_name);
-            $('#promo_image').val(data.promo_image);
+            $('#id').val(data.gallery_id);
+            $('#gallery_name').val(data.gallery_name);
+            $('#lstCategory_edit').val(data.category_gallery_id);
+            $('#gallery_image').val(data.gallery_image);
 
             $path = '<?=base_url();?>img/';
-            if (data.promo_image != null) {
-                $('#previewFoto').attr('src', $path+'promo_folder/'+data.promo_image);
+            if (data.gallery_image != null) {
+                $('#previewFoto').attr('src', $path+'gallery_folder/'+data.gallery_image);
             } else {
                 $('#previewFoto').attr('src', $path+'no-image.png');
             }
@@ -288,7 +292,7 @@ $(document).ready(function() {
         },
         messages: {
             name: {
-                required :'Nama Promo harus diisi'
+                required :'Nama Galeri harus diisi'
             }
         },
         invalidHandler: function (event, validator) {
@@ -315,7 +319,7 @@ $(document).ready(function() {
         submitHandler: function(form) {
             var formData = new FormData($('#formEdit')[0]);
             $.ajax({
-                url: '<?=site_url('admin/promo/updatedata');?>',
+                url: '<?=site_url('admin/gallery/updatedata');?>',
                 type: "POST",
                 dataType: 'json',
                 data: formData,
@@ -368,14 +372,27 @@ $(document).ready(function() {
             <form role="form" action="" method="post" id="formInput" class="form-horizontal" enctype="multipart/form-data">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Form Tambah Gambar Promo</h4>
+                <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Form Tambah Galeri Foto</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Nama Promo</label>
+                    <label class="col-md-3 control-label">Nama Galeri</label>
                     <div class="col-md-9">
                         <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input Nama Promo" name="name" id="name" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="Input Nama Galeri" name="name" id="name" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Kategori</label>
+                    <div class="col-md-9">
+                        <div class="input-icon right"><i class="fa"></i>
+                            <select class="form-control" name="lstCategory" id="lstCategory" required>
+                                <option value="">- Pilih -</option>
+                                <?php foreach ($listCategory as $r) {?>
+                                <option value="<?=$r->category_gallery_id;?>"><?=$r->category_gallery_name;?></option>
+                                <?php }?>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -422,15 +439,28 @@ $(document).ready(function() {
             <form role="form" action="" method="post" id="formEdit" class="form-horizontal" enctype="multipart/form-data">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><i class="fa fa-edit"></i> Form Edit Gambar Promo</h4>
+                <h4 class="modal-title"><i class="fa fa-edit"></i> Form Edit Galeri Foto</h4>
                 <input type="hidden" name="id" id="id">
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Nama Promo</label>
+                    <label class="col-md-3 control-label">Nama Galeri</label>
                     <div class="col-md-9">
                         <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input Nama Promo" name="name" id="promo_name" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="Input Nama Galeri" name="name" id="gallery_name" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Kategori</label>
+                    <div class="col-md-9">
+                        <div class="input-icon right"><i class="fa"></i>
+                            <select class="form-control" name="lstCategory" id="lstCategory_edit" required>
+                                <option value="">- Pilih -</option>
+                                <?php foreach ($listCategory as $r) {?>
+                                <option value="<?=$r->category_gallery_id;?>"><?=$r->category_gallery_name;?></option>
+                                <?php }?>
+                            </select>
                         </div>
                     </div>
                 </div>

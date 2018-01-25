@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Promo_m extends CI_Model
+class Category_gallery_m extends CI_Model
 {
-    public $table         = 'alifa_promo';
-    public $column_order  = array(null, null, 'promo_post', 'promo_name', null);
-    public $column_search = array('promo_name');
-    public $order         = array('promo_id' => 'desc');
+    public $table         = 'alifa_category_gallery';
+    public $column_order  = array(null, null, 'category_gallery_name');
+    public $column_search = array('category_gallery_name');
+    public $order         = array('category_gallery_name' => 'asc');
 
     public function __construct()
     {
@@ -70,51 +70,40 @@ class Promo_m extends CI_Model
     public function insert_data()
     {
         $data = array(
-            'user_username' => $this->session->userdata('username'),
-            'promo_name'    => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
-            'promo_image'   => $this->upload->file_name,
-            'promo_post'    => date('Y-m-d H:i:s'),
-            'promo_update'  => date('Y-m-d H:i:s'),
+            'category_gallery_name'   => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
+            'category_gallery_seo'    => seo_title($this->input->post('name', 'true')),
+            'category_gallery_update' => date('Y-m-d H:i:s'),
         );
 
-        $this->db->insert('alifa_promo', $data);
+        $this->db->insert('alifa_category_gallery', $data);
     }
 
-    public function select_by_id($id)
-    {
+    function select_by_id($id) {
         $this->db->select('*');
-        $this->db->from('alifa_promo');
-        $this->db->where('promo_id', $id);
+        $this->db->from('alifa_category_gallery');
+        $this->db->where('category_gallery_id', $id);
 
         return $this->db->get();
     }
 
     public function update_data()
     {
-        $promo_id = $this->input->post('id', 'true');
-        if (!empty($_FILES['foto']['name'])) {
-            $data = array(
-                'user_username' => $this->session->userdata('username'),
-                'promo_name'    => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
-                'promo_image'   => $this->upload->file_name,
-                'promo_update'  => date('Y-m-d H:i:s'),
-            );
-        } else {
-            $data = array(
-                'user_username' => $this->session->userdata('username'),
-                'promo_name'    => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
-                'promo_update'  => date('Y-m-d H:i:s'),
-            );
-        }
+        $category_gallery_id = $this->input->post('id', 'true');
 
-        $this->db->where('promo_id', $promo_id);
-        $this->db->update('alifa_promo', $data);
+        $data = array(
+            'category_gallery_name'   => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
+            'category_gallery_seo'    => seo_title($this->input->post('name', 'true')),
+            'category_gallery_update' => date('Y-m-d H:i:s'),
+        );
+
+        $this->db->where('category_gallery_id', $category_gallery_id);
+        $this->db->update('alifa_category_gallery', $data);
     }
 
     public function delete_data($id)
     {
-        $this->db->where('promo_id', $id);
-        $this->db->delete('alifa_promo');
+        $this->db->where('category_gallery_id', $id);
+        $this->db->delete('alifa_category_gallery');
     }
 }
-/* Location: ./application/models/admin/Promo_m.php */
+/* Location: ./application/models/admin/Category_gallery_m.php */

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Promo extends CI_Controller
+class Gallery extends CI_Controller
 {
     public function __construct()
     {
@@ -11,13 +11,14 @@ class Promo extends CI_Controller
         }
 
         $this->load->library('template');
-        $this->load->model('admin/promo_m');
+        $this->load->model('admin/gallery_m');
     }
 
     public function index()
     {
         if ($this->session->userdata('logged_in_alifa')) {
-            $this->template->display('admin/master/promo_view');
+            $data['listCategory'] = $this->gallery_m->select_category()->result();
+            $this->template->display('admin/master/gallery_view', $data);
         } else {
             $this->session->sess_destroy();
             redirect(base_url());
@@ -26,30 +27,31 @@ class Promo extends CI_Controller
 
     public function data_list()
     {
-        $List = $this->promo_m->get_datatables();
+        $List = $this->gallery_m->get_datatables();
         $data = array();
         $no   = $_POST['start'];
 
         foreach ($List as $r) {
             $no++;
             $row       = array();
-            $promo_id = $r->promo_id;
+            $gallery_id = $r->gallery_id;
 
-            $row[] = '	<button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $promo_id . "'" . ')"><i class="fa fa-edit"></i></button>
-            			<a onclick="hapusData(' . $promo_id . ')"><button class="btn btn-danger btn-xs" type="button" title="Delete Data"><i class="fa fa-times-circle"></i></button>';
+            $row[] = '	<button type="button" class="btn btn-primary btn-xs" title="Edit Data" href="javascript:void(0)" onclick="edit_data(' . "'" . $gallery_id . "'" . ')"><i class="fa fa-edit"></i></button>
+            			<a onclick="hapusData(' . $gallery_id . ')"><button class="btn btn-danger btn-xs" type="button" title="Delete Data"><i class="fa fa-times-circle"></i></button>';
 
             $row[] = $no;
-            $row[] = date('d-m-Y' ,strtotime($r->promo_post));
-            $row[] = $r->promo_name;
-            $row[] = '<img src=' . base_url('img/promo_folder/' . $r->promo_image) . ' width="50%">';
+            $row[] = date('d-m-Y' ,strtotime($r->gallery_post));
+            $row[] = $r->gallery_name;
+            $row[] = $r->category_gallery_name;
+            $row[] = '<img src=' . base_url('img/gallery_folder/' . $r->gallery_image) . ' width="50%">';
 
             $data[] = $row;
         }
 
         $output = array(
             "draw"            => $_POST['draw'],
-            "recordsTotal"    => $this->promo_m->count_all(),
-            "recordsFiltered" => $this->promo_m->count_filtered(),
+            "recordsTotal"    => $this->gallery_m->count_all(),
+            "recordsFiltered" => $this->gallery_m->count_filtered(),
             "data"            => $data,
         );
 
@@ -60,8 +62,8 @@ class Promo extends CI_Controller
     {
         $jam = time();
 
-        $config['file_name']     = 'Promo_' . $jam . '.jpg';
-        $config['upload_path']   = './img/promo_folder/';
+        $config['file_name']     = 'Gallery_' . $jam . '.jpg';
+        $config['upload_path']   = './img/gallery_folder/';
         $config['allowed_types'] = 'jpg|png|gif|jpeg';
         $config['overwrite']     = true;
         $config['max_size']      = 0;
@@ -86,7 +88,7 @@ class Promo extends CI_Controller
             $configThumb['source_image'] = $upload_data['full_path'];
             $this->image_lib->initialize($configThumb);
             $this->image_lib->resize();
-            $this->promo_m->insert_data();
+            $this->gallery_m->insert_data();
             $response['status'] = 'success';
         }
         echo json_encode($response);
@@ -94,7 +96,7 @@ class Promo extends CI_Controller
 
     public function get_data($id)
     {
-        $data = $this->promo_m->select_by_id($id)->row();
+        $data = $this->gallery_m->select_by_id($id)->row();
         echo json_encode($data);
     }
 
@@ -102,8 +104,8 @@ class Promo extends CI_Controller
     {
         if (!empty($_FILES['foto']['name'])) {
             $jam = time();
-            $config['file_name']     = 'Promo_' . $jam . '.jpg';
-            $config['upload_path']   = './img/promo_folder/';
+            $config['file_name']     = 'Gallery_' . $jam . '.jpg';
+            $config['upload_path']   = './img/gallery_folder/';
             $config['allowed_types'] = 'jpg|png|gif|jpeg';
             $config['overwrite']     = true;
             $config['max_size']      = 0;
@@ -129,11 +131,11 @@ class Promo extends CI_Controller
                 $this->image_lib->initialize($configThumb);
                 $this->image_lib->resize();
 
-                $this->promo_m->update_data();
+                $this->gallery_m->update_data();
                 $response['status'] = 'success';
             }
         } else {
-            $this->promo_m->update_data();
+            $this->gallery_m->update_data();
             $response['status'] = 'success';
         }
 
@@ -142,8 +144,8 @@ class Promo extends CI_Controller
 
     public function deletedata($id)
     {
-        $this->promo_m->delete_data($id);
+        $this->gallery_m->delete_data($id);
         echo json_encode(array("status" => true));
     }
 }
-/* Location: ./application/controller/admin/Promo.php */
+/* Location: ./application/controller/admin/Gallery.php */
