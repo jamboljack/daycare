@@ -57,6 +57,14 @@ if ($uri == '' || $uri == 'home') {
     $promo   = '';
     $artikel = '';
     $kontak  = 'current-menu-item';
+} else {
+    $beranda = '';
+    $profil  = '';
+    $produk  = '';
+    $galeri  = '';
+    $promo   = '';
+    $artikel = '';
+    $kontak  = '';
 }
 
 ?>

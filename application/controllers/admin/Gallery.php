@@ -78,8 +78,8 @@ class Gallery extends CI_Controller
         $configThumb['source_image']   = '';
         $configThumb['maintain_ratio'] = true;
         $configThumb['overwrite']      = true;
-        $configThumb['width']          = 900;
-        $configThumb['height']         = 700;
+        $configThumb['width']          = 800;
+        $configThumb['height']         = 600;
         $this->load->library('image_lib');
 
         if (!$this->upload->do_upload('foto')) {
@@ -120,8 +120,8 @@ class Gallery extends CI_Controller
             $configThumb['source_image']   = '';
             $configThumb['maintain_ratio'] = true;
             $configThumb['overwrite']      = true;
-            $configThumb['width']          = 900;
-            $configThumb['height']         = 700;
+            $configThumb['width']          = 800;
+            $configThumb['height']         = 600;
             $this->load->library('image_lib');
 
             if (!$this->upload->do_upload('foto')) {
@@ -205,8 +205,8 @@ class Gallery extends CI_Controller
         $configThumb['source_image']   = '';
         $configThumb['maintain_ratio'] = true;
         $configThumb['overwrite']      = true;
-        $configThumb['width']          = 900;
-        $configThumb['height']         = 700;
+        $configThumb['width']          = 800;
+        $configThumb['height']         = 600;
         $this->load->library('image_lib');
 
         if (!$this->upload->do_upload('foto')) {

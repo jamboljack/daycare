@@ -99,7 +99,7 @@
                                 $listPromo = $this->menu_m->select_promo()->result(); 
                                 foreach($listPromo as $r) {
                                 ?>
-                                <div class="item">
+                                <div class="item-isotope">
                                     <div class="gallery_item">
                                         <a href="<?=base_url('img/promo_folder/'.$r->promo_image);?>" class="mfp-image">
                                             <img src="<?=base_url('img/promo_folder/'.$r->promo_image);?>" alt="">

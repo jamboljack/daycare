@@ -417,7 +417,7 @@ $(document).ready(function() {
                         <div class="clearfix margin-top-10">
                             <span class="label label-danger">
                             INFO !</span>
-                            Resolution : 900 x 700 Pixel
+                            Resolution : 800 x 600 Pixel
                         </div>
                     </div>
                 </div>
@@ -491,7 +491,7 @@ $(document).ready(function() {
                         <div class="clearfix margin-top-10">
                             <span class="label label-danger">
                             INFO !</span>
-                            Resolution : 900 x 700 Pixel
+                            Resolution : 800 x 600 Pixel
                         </div>
                     </div>
                 </div>

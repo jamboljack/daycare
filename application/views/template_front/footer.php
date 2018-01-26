@@ -35,7 +35,7 @@ $meta = $this->menu_m->select_meta()->row();
                     <div class="widget widget_logo">
                         <div class="widget-logo">
                             <div class="img">
-                                <a href="<?=base_url();?>"><img src="<?=base_url();?>img/logo-alifa.png" alt=""></a>
+                                <a href="<?=base_url();?>"><img src="<?=base_url();?>img/logo-big.png" alt=""></a>
                             </div>
                             <div class="text">
                                 
