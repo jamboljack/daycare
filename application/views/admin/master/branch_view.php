@@ -2,8 +2,8 @@
 <script src="<?=base_url();?>backend/js/sweetalert2.min.js"></script>
 
 <script>
-    function hapusData(social_id) {
-        var id = social_id;
+    function hapusData(branch_id) {
+        var id = branch_id;
         swal({
             title: 'Anda Yakin ?',
             text: 'Data ini akan di Hapus !',
@@ -17,7 +17,7 @@
         }, function(isConfirm) {
             if (!isConfirm) return;
             $.ajax({
-                url : "<?=site_url('admin/social/deletedata')?>/"+id,
+                url : "<?=site_url('admin/branch/deletedata')?>/"+id,
                 type: "POST",
                 dataType: "JSON",
                 success: function(data) {
@@ -40,7 +40,7 @@
 
 <div class="page-content-wrapper">
     <div class="page-content">
-        <h3 class="page-title">Sosial Media</h3>
+        <h3 class="page-title">Cabang</h3>
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
@@ -53,7 +53,7 @@
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Sosial Media</a>
+                    <a href="#">Cabang</a>
                 </li>
             </ul>
             <div class="page-toolbar">
@@ -68,7 +68,7 @@
                 <div class="portlet box grey-steel">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-list"></i> Daftar Sosial Media
+                            <i class="fa fa-list"></i> Daftar Cabang
                         </div>
                     </div>
                     <div class="portlet-body">
@@ -81,9 +81,7 @@
                                 <tr>
                                     <th width="10%"></th>
                                     <th width="5%">No</th>
-                                    <th>Nama Sosial Media</th>
-                                    <th width="20%">Class</th>
-                                    <th width="20%">URL</th>
+                                    <th>Nama Cabang</th>
                                 </tr>
                             </thead>
 
@@ -114,7 +112,7 @@ $(document).ready(function() {
         "serverSide": true,
         "order": [2, 'asc'],
         "ajax": {
-            "url": "<?=site_url('admin/social/data_list');?>",
+            "url": "<?=site_url('admin/branch/data_list');?>",
             "type": "POST"
         },
         "columnDefs": [
@@ -129,8 +127,6 @@ $(document).ready(function() {
 // Reset Form Input
 function resetformInput() {
     $("#name").val('');
-    $("#lstClass").val('');
-    $("#url").val('');
 
     var MValid = $("#formInput");
     MValid.validate().resetForm();
@@ -161,19 +157,11 @@ $(document).ready(function() {
         focusInvalid: false,
         ignore: "",
         rules: {
-            name: { required: true },
-            lstClass: { required: true },
-            url: { required: true }
+            name: { required: true }
         },
         messages: {
             name: {
-                required :'Nama Sosial Media harus diisi'
-            },
-            lstClass: {
-                required :'Class harus dipilih'
-            },
-            url: {
-                required :'URL harus diisi'
+                required :'Nama Cabang harus diisi'
             }
         },
         invalidHandler: function (event, validator) {
@@ -200,7 +188,7 @@ $(document).ready(function() {
         submitHandler: function(form) {
             dataString = $("#formInput").serialize();
             $.ajax({
-                url: '<?=site_url('admin/social/savedata');?>',
+                url: '<?=site_url('admin/branch/savedata');?>',
                 type: "POST",
                 data: dataString,
                 success: function(data) {
@@ -234,14 +222,12 @@ $(document).ready(function() {
 function edit_data(id) {
     $('#formEdit')[0].reset();
     $.ajax({
-        url : "<?=site_url('admin/social/get_data/');?>"+id,
+        url : "<?=site_url('admin/branch/get_data/');?>"+id,
         type: "GET",
         dataType: "JSON",
         success: function(data) {
-            $('#id').val(data.social_id);
-            $('#social_name').val(data.social_name);
-            $('#social_class').val(data.social_class);
-            $('#social_url').val(data.social_url);
+            $('#id').val(data.branch_id);
+            $('#branch_name').val(data.branch_name);
             $('#formModalEdit').modal('show');
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -261,19 +247,11 @@ $(document).ready(function() {
         focusInvalid: false,
         ignore: "",
         rules: {
-            name: { required: true },
-            lstClass: { required: true },
-            url: { required: true }
+            name: { required: true }
         },
         messages: {
             name: {
-                required :'Nama Sosial Media harus diisi'
-            },
-            lstClass: {
-                required :'Class harus dipilih'
-            },
-            url: {
-                required :'URL harus diisi'
+                required :'Nama Cabang harus diisi'
             }
         },
         invalidHandler: function (event, validator) {
@@ -300,7 +278,7 @@ $(document).ready(function() {
         submitHandler: function(form) {
             dataString = $("#formEdit").serialize();
             $.ajax({
-                url: '<?=site_url('admin/social/updatedata');?>',
+                url: '<?=site_url('admin/branch/updatedata');?>',
                 type: "POST",
                 data: dataString,
                 success: function(data) {
@@ -338,37 +316,14 @@ $(document).ready(function() {
             <form role="form" action="" method="post" id="formInput" class="form-horizontal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Form Tambah Sosial Media</h4>
+                <h4 class="modal-title"><i class="fa fa-plus-circle"></i> Form Tambah Cabang</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Nama Sosial Media</label>
+                    <label class="col-md-3 control-label">Nama Cabang</label>
                     <div class="col-md-9">
                         <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input Nama Sosial Media" name="name" id="name" autocomplete="off">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Class</label>
-                    <div class="col-md-9">
-                        <div class="input-icon right"><i class="fa"></i>
-                            <select class="form-control" name="lstClass" id="lstClass" required>
-                                <option value="">- Pilih -</option>
-                                <option value="facebook">Facebook</option>
-                                <option value="twitter">Twitter</option>
-                                <option value="pinterest">Path</option>
-                                <option value="instagram">Instagram</option>
-                                <option value="youtube">Youtube</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label">URL</label>
-                    <div class="col-md-9">
-                        <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input URL" name="url" id="url" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="Input Nama Cabang" name="name" id="name" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -388,38 +343,15 @@ $(document).ready(function() {
             <form role="form" action="" method="post" id="formEdit" class="form-horizontal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title"><i class="fa fa-edit"></i> Form Edit Sosial Media</h4>
+                <h4 class="modal-title"><i class="fa fa-edit"></i> Form Edit Cabang</h4>
                 <input type="hidden" name="id" id="id">
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Nama Sosial Media</label>
+                    <label class="col-md-3 control-label">Nama Cabang</label>
                     <div class="col-md-9">
                         <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input Nama Sosial Media" name="name" id="social_name" autocomplete="off">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Class</label>
-                    <div class="col-md-9">
-                        <div class="input-icon right"><i class="fa"></i>
-                            <select class="form-control" name="lstClass" id="social_class" required>
-                                <option value="">- Pilih -</option>
-                                <option value="facebook">Facebook</option>
-                                <option value="twitter">Twitter</option>
-                                <option value="pinterest">Path</option>
-                                <option value="instagram">Instagram</option>
-                                <option value="youtube">Youtube</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 control-label">URL</label>
-                    <div class="col-md-9">
-                        <div class="input-icon right"><i class="fa"></i>
-                            <input type="text" class="form-control" placeholder="Input URL" name="url" id="social_url" autocomplete="off">
+                            <input type="text" class="form-control" placeholder="Input Nama Cabang" name="name" id="branch_name" autocomplete="off">
                         </div>
                     </div>
                 </div>
