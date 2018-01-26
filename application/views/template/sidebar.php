@@ -15,6 +15,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -44,6 +49,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -73,6 +83,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -102,6 +117,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -131,6 +151,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -160,6 +185,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -189,6 +219,11 @@ if ($uri == 'home') {
     $employee         = 'active';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -218,6 +253,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = 'active';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -247,6 +287,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = 'active';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -276,6 +321,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = 'active';
     $promo            = '';
     $gal              = '';
@@ -305,6 +355,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = 'active';
     $gal              = '';
@@ -334,6 +389,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = 'active open';
@@ -363,6 +423,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = 'active open';
@@ -392,6 +457,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -421,6 +491,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -450,6 +525,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -479,6 +559,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -508,6 +593,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -537,6 +627,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -566,6 +661,11 @@ if ($uri == 'home') {
     $employee         = '';
     $meta             = '';
     $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
     $product          = '';
     $promo            = '';
     $gal              = '';
@@ -647,6 +747,22 @@ if ($uri == 'home') {
                 <a href="<?=site_url('admin/social');?>">
                     <i class="fa fa-external-link"></i><span class="title"> Sosial Media</span>
                 </a>
+            </li>
+            <li class="<?=$off;?>">
+                <a href="#">
+                    <i class="fa fa-building"></i>
+                    <span class="title"> Kantor</span>
+                    <?=$span_off_1;?>
+                    <span class="arrow <?=$span_off_2;?>"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="<?=$branch;?>">
+                        <a href="<?=site_url('admin/branch');?>"><i class="fa fa-arrow-circle-o-right"></i> Cabang</a>
+                    </li>
+                    <li class="<?=$office;?>">
+                        <a href="<?=site_url('admin/office');?>"><i class="fa fa-arrow-circle-o-right"></i> Daftar Kantor</a>
+                    </li>
+                </ul>
             </li>
             <?php }?>
             <li class="heading">
