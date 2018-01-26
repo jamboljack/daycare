@@ -25,7 +25,7 @@ $dataUser = $this->menu_m->select_user($username)->row();
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
                         <li>
-                            <a href="<?=site_url('profil');?>"><i class="fa fa-user"></i> Profil </a>
+                            <a href="<?=site_url('admin/profil');?>"><i class="fa fa-user"></i> Profil </a>
                         </li>
                         <li class="divider"></li>
                         <li>

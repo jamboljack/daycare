@@ -7,7 +7,7 @@ $meta = $this->menu_m->select_meta()->row();
             <div class="row">
                 <div class="col-lg-9">
                     <div class="mailchimp">
-                        <h4>Social Media</h4>
+                        <h4>Sosial Media</h4>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -35,7 +35,7 @@ $meta = $this->menu_m->select_meta()->row();
                     <div class="widget widget_logo">
                         <div class="widget-logo">
                             <div class="img">
-                                <a href="<?=base_url();?>"><img src="<?=base_url();?>img/logo.png" alt=""></a>
+                                <a href="<?=base_url();?>"><img src="<?=base_url();?>img/logo-alifa.png" alt=""></a>
                             </div>
                             <div class="text">
                                 
@@ -45,12 +45,16 @@ $meta = $this->menu_m->select_meta()->row();
                 </div>
                 <div class="col-xs-4 col-lg-2">
                     <div class="widget">
-                        <h4 class="widget-title">Page site</h4>
+                        <h4 class="widget-title">Paket</h4>
                         <ul>
-                            <li><a href="#">Guest Book</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Restaurant</a></li>
-                            <li><a href="#">Event</a></li>
+                            <?php 
+                            $listPaket = $this->menu_m->select_paket()->result();
+                            foreach($listPaket as $r) {
+                            ?>
+                            <li><a href="#"><?=ucwords(strtolower($r->paket_name));?></a></li>
+                            <?php 
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>

@@ -9,53 +9,50 @@ class Profil_m extends CI_Model
         parent::__construct();
     }
 
-    public function select_detail($username)
+    public function select_detail_profil()
     {
         $this->db->select('*');
-        $this->db->from('alifa_users');
-        $this->db->where('user_username', $username);
+        $this->db->from('alifa_menu');
+        $this->db->where('menu_id', 1);
 
         return $this->db->get();
     }
 
-    public function update_data_profil()
+    public function select_list_image()
     {
-        $username = $this->session->userdata('username');
+        $this->db->select('*');
+        $this->db->from('alifa_img_about');
+        $this->db->order_by('img_about_id', 'asc');
 
-        $data = array(
-            'user_name'        => ucwords(strtolower(stripHTMLtags($this->input->post('name', 'true')))),
-            'user_mobile'      => trim(stripHTMLtags($this->input->post('mobile', 'true'))),
-            'user_date_update' => date('Y-m-d H:i:s'),
-        );
-
-        $this->db->where('user_username', $username);
-        $this->db->update('alifa_users', $data);
+        return $this->db->get();
     }
 
-    public function update_avatar()
+    public function select_detail_visi()
     {
-        $username = $this->session->userdata('username');
-        $data     = array(
-            'user_avatar'      => $this->upload->file_name,
-            'user_date_update' => date('Y-m-d H:i:s'),
-        );
+        $this->db->select('*');
+        $this->db->from('alifa_menu');
+        $this->db->where('menu_id', 2);
 
-        $this->db->where('user_username', $username);
-        $this->db->update('alifa_users', $data);
+        return $this->db->get();
     }
 
-    public function update_password()
+    public function select_team()
     {
-        $username = $this->session->userdata('username');
-        $password = trim($this->input->post('newpassword', 'true'));
+        $this->db->select('*');
+        $this->db->from('alifa_team');
+        $this->db->order_by('team_id', 'asc');
 
-        $data = array(
-            'user_password'    => sha1($password),
-            'user_date_update' => date('Y-m-d H:i:s'),
-        );
+        return $this->db->get();
+    }
 
-        $this->db->where('user_username', $username);
-        $this->db->update('alifa_users', $data);
+    public function select_staff($team_id)
+    {
+        $this->db->select('*');
+        $this->db->from('alifa_employee');
+        $this->db->where('team_id', $team_id);
+        $this->db->order_by('employee_id', 'asc');
+
+        return $this->db->get();
     }
 }
-/* Location: ./application/model/admin/Profil_m.php */
+/* Location: ./application/model/Profil_m.php */
