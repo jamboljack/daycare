@@ -29,16 +29,13 @@ $meta = $this->menu_m->select_meta()->row();
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>front/css/lib/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>front/css/style2.css">
 </head>
-
 <body>
     <div id="preloader">
         <span class="preloader-dot"></span>
     </div>
     <div id="page-wrap">
         <?=$_header;?>
-
         <?=$content;?>
-
         <?=$_footer;?>
     </div>
     <script type="text/javascript" src="<?=base_url();?>front/js/lib/jquery-1.11.0.min.js"></script>
