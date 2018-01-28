@@ -17,7 +17,11 @@ class Home extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('logged_in_alifa')) {
-            $this->template->display('admin/home_view');
+            $data['employee'] = $this->home_m->select_employee()->row();
+            $data['student']  = $this->home_m->select_student()->row();
+            $data['promo']    = $this->home_m->select_promo()->row();
+            $data['article']  = $this->home_m->select_article()->row();
+            $this->template->display('admin/home_view', $data);
         } else {
             $this->session->sess_destroy();
             redirect(base_url());

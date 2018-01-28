@@ -58,7 +58,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="hidden" name="year_id" value="<?=$detail->year_id;?>">
+                                    <input type="hidden" name="year_id" value="<?=$tahun->year_id;?>">
                                     <input type="text" class="field-text" name="year" value="Tahun : <?=$tahun->year_name;?>" disabled>
                                 </div>
                                 <div class="col-sm-12">

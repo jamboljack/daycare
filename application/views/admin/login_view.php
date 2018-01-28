@@ -25,7 +25,7 @@
             </div>
             <div class="form-group">
                 <div class="col-md-6">
-                    <a href="<?=site_url('lupa_password');?>" class="btn btn-link">Lupa Password ?</a>
+                    
                 </div>
                 <div class="col-md-6">
                     <button class="btn btn-danger btn-block"><i class="fa fa-sign-in"></i> Login</button>

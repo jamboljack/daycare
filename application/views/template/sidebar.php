@@ -755,8 +755,9 @@ if ($uri == 'home') {
 <div class="page-sidebar-wrapper">
     <div class="page-sidebar navbar-collapse collapse">
         <ul class="page-sidebar-menu page-sidebar-menu-light " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <br><br>
             <li class="sidebar-search-wrapper">
-                <form class="sidebar-search sidebar-search-bordered" action="#" method="POST">
+                <!-- <form class="sidebar-search sidebar-search-bordered" action="#" method="POST">
                     <a href="javascript:;" class="remove">
                         <i class="icon-close"></i>
                     </a>
@@ -766,7 +767,7 @@ if ($uri == 'home') {
                             <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
                         </span>
                     </div>
-                </form>
+                </form> -->
             </li>
 
             <li class="tooltips <?=$dashboard;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Dashboard">

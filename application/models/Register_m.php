@@ -101,7 +101,7 @@ class Register_m extends CI_Model
             'office_id'             => $this->input->post('lstOffice', 'true'),
             'student_name'          => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
             'student_birth'         => strtoupper(stripHTMLtags($this->input->post('place', 'true'))),
-            'student_date'          => $this->input->post('date', 'true'),
+            'student_date'          => date('Y-m-d', strtotime($this->input->post('date', 'true'))),
             'student_gender'        => $this->input->post('lstJK', 'true'),
             'student_agama'         => $this->input->post('lstAgama', 'true'),
             'provinsi_id'           => $this->input->post('lstProvinsi', 'true'),

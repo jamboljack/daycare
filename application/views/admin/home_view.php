@@ -23,13 +23,13 @@
                     </div>
                     <div class="details">
                         <div class="number">
-                            
+                            <?=number_format($employee->total,0,'','');?>
                         </div>
                         <div class="desc">
-                            Total Member
+                            Total Karyawan
                         </div>
                     </div>
-                    <a class="more" href="<?=site_url('admin/member');?>">
+                    <a class="more" href="<?=site_url('admin/employee');?>">
                     View <i class="m-icon-swapright m-icon-white"></i>
                     </a>
                 </div>
@@ -37,17 +37,17 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="dashboard-stat red-intense">
                     <div class="visual">
-                        <i class="fa fa-home"></i>
+                        <i class="fa fa-user"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            
+                            <?=number_format($student->total,0,'','');?>
                         </div>
                         <div class="desc">
-                            Total Toko
+                            Total Siswa
                         </div>
                     </div>
-                    <a class="more" href="<?=site_url('admin/shop');?>">
+                    <a class="more" href="<?=site_url('admin/student');?>">
                     View <i class="m-icon-swapright m-icon-white"></i>
                     </a>
                 </div>
@@ -55,17 +55,17 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="dashboard-stat purple-plum">
                     <div class="visual">
-                        <i class="fa fa-archive"></i>
+                        <i class="fa fa-tags"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            
+                            <?=number_format($promo->total,0,'','');?>
                         </div>
                         <div class="desc">
-                            Total Produk
+                            Total Promo
                         </div>
                     </div>
-                    <a class="more" href="<?=site_url('admin/product');?>">
+                    <a class="more" href="<?=site_url('admin/promo');?>">
                     View <i class="m-icon-swapright m-icon-white"></i>
                     </a>
                 </div>
@@ -73,73 +73,17 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="dashboard-stat green-haze">
                     <div class="visual">
-                        <i class="fa fa-shopping-cart"></i>
+                        <i class="fa fa-newspaper-o"></i>
                     </div>
                     <div class="details">
                         <div class="number">
-                            
+                            <?=number_format($article->total,0,'','');?>
                         </div>
                         <div class="desc">
-                            Total Invoice
+                            Total Artikel
                         </div>
                     </div>
-                    <a class="more" href="<?=site_url('admin/order');?>">
-                    View <i class="m-icon-swapright m-icon-white"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="dashboard-stat yellow-casablanca">
-                    <div class="visual">
-                        <i class="fa fa-list"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number">
-                            
-                        </div>
-                        <div class="desc">
-                            Nominal belum Terbayar
-                        </div>
-                    </div>
-                    <a class="more" href="<?=site_url('admin/order');?>">
-                    View <i class="m-icon-swapright m-icon-white"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="dashboard-stat grey-gallery">
-                    <div class="visual">
-                        <i class="fa fa-list-alt"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number">
-                            
-                        </div>
-                        <div class="desc">
-                            Nominal Terbayar
-                        </div>
-                    </div>
-                    <a class="more" href="<?=site_url('admin/order');?>">
-                    View <i class="m-icon-swapright m-icon-white"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="dashboard-stat red-thunderbird">
-                    <div class="visual">
-                        <i class="fa fa-usd"></i>
-                    </div>
-                    <div class="details">
-                        <div class="number">
-                            
-                        </div>
-                        <div class="desc">
-                            Total Transaksi
-                        </div>
-                    </div>
-                    <a class="more" href="<?=site_url('admin/order');?>">
+                    <a class="more" href="<?=site_url('admin/article');?>">
                     View <i class="m-icon-swapright m-icon-white"></i>
                     </a>
                 </div>
