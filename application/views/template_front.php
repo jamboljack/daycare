@@ -28,6 +28,7 @@ $meta = $this->menu_m->select_meta()->row();
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>front/css/lib/settings.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>front/css/lib/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url();?>front/css/style2.css">
+    <script type="text/javascript" src="<?=base_url();?>front/js/lib/jquery-1.11.0.min.js"></script>
 </head>
 <body>
     <div id="preloader">
@@ -38,7 +39,6 @@ $meta = $this->menu_m->select_meta()->row();
         <?=$content;?>
         <?=$_footer;?>
     </div>
-    <script type="text/javascript" src="<?=base_url();?>front/js/lib/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="<?=base_url();?>front/js/lib/jquery-ui.min.js"></script>
     <script type="text/javascript" src="<?=base_url();?>front/js/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?=base_url();?>front/js/lib/bootstrap-select.js"></script>

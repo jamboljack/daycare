@@ -82,5 +82,24 @@ class Menu_m extends CI_Model
 
         return $this->db->get();
     }
+
+    public function select_branch()
+    {
+        $this->db->select('*');
+        $this->db->from('alifa_branch');
+        $this->db->order_by('branch_id', 'asc');
+
+        return $this->db->get();
+    }
+    
+    public function select_list($branch_id)
+    {
+        $this->db->select('*');
+        $this->db->from('alifa_office');
+        $this->db->where('branch_id', $branch_id);
+        $this->db->order_by('office_id', 'asc');
+
+        return $this->db->get();
+    }
 }
 /* Location: ./application/model/Menu_m.php */

@@ -12,10 +12,8 @@
     <div class="container">
         <div class="about">
             <div class="about-item">
-                <div class="text">
-                    <div class="desc">
-                        <p align="justify"><?=$detail->menu_desc;?></p>
-                    </div>
+                <div class="desc">
+                    <p align="justify"><?=$detail->menu_desc;?></p>
                 </div>
             </div>
         </div>

@@ -105,6 +105,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="col-md-2 control-label">Email</label>
+                                    <div class="col-md-5">
+                                        <div class="input-icon right">
+                                            <i class="fa"></i>
+                                            <input type="text" class="form-control" name="email" placeholder="Input Email" value="<?=$detail->office_email;?>" autocomplete="off" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-md-2 control-label">Status</label>
                                     <div class="col-md-5">
                                         <div class="input-icon right">
@@ -178,6 +187,7 @@ $(document).ready(function() {
             address: { required: true },
             telp: { required: true },
             handphone: { required: true },
+            email: { required: true, email:true },
             status: { required: true },
             lat: { required: true, latCoord: true },
             long: { required: true, longCoord: true }
@@ -197,6 +207,9 @@ $(document).ready(function() {
             },
             handphone: {
                 required :'Handphone harus diisi'
+            },
+            email: {
+                required :'Email harus diisi', email : 'Email tidak Valid'
             },
             status: {
                 required :'Status harus diisi'
