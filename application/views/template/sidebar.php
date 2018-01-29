@@ -33,6 +33,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -67,6 +68,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -101,6 +103,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -135,6 +138,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -169,6 +173,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -203,6 +208,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -237,6 +243,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -271,6 +278,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -305,6 +313,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -339,6 +348,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -373,6 +383,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -407,6 +418,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -441,6 +453,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -475,6 +488,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -509,6 +523,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -543,6 +558,7 @@ if ($uri == 'home') {
     $category         = 'active';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -577,6 +593,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = 'active';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -611,6 +628,42 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = 'active';
+    $message          = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'message') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $about            = '';
+    $img_about        = '';
+    $visimisi         = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
+    $product          = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $message          = 'active';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -645,6 +698,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = 'active';
     $student          = '';
     $users            = '';
@@ -679,6 +733,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = 'active';
     $users            = '';
@@ -713,6 +768,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = 'active';
@@ -747,6 +803,7 @@ if ($uri == 'home') {
     $category         = '';
     $article          = '';
     $paket            = '';
+    $message          = '';
     $year             = '';
     $student          = '';
     $users            = '';
@@ -882,6 +939,11 @@ if ($uri == 'home') {
             <li class="tooltips <?=$paket;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Paket">
                 <a href="<?=site_url('admin/paket');?>">
                     <i class="fa fa-gift"></i><span class="title"> Paket</span>
+                </a>
+            </li>
+            <li class="tooltips <?=$message;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Message">
+                <a href="<?=site_url('admin/message');?>">
+                    <i class="fa fa-comment"></i><span class="title"> Pesan</span>
                 </a>
             </li>
             <li class="heading">

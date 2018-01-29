@@ -54,8 +54,9 @@
                                 <div class="col-sm-12">
                                     <textarea cols="30" rows="10" name="message" id="message" class="field-textarea" placeholder="Tuliskan Pesan Anda" required></textarea>
                                 </div>
-                                <div class="col-sm-12"></div>
-                                <div class="col-sm-12"></div>
+                                <div class="col-sm-12">
+                                    <br>
+                                </div>
                                 <div class="col-sm-12">
                                     <?=$this->recaptcha->render();?>
                                 </div>
@@ -131,12 +132,22 @@ $(document).ready(function() {
                 data: dataString,
                 success: function(data) {
                     if (data.status === 'success') {
-                        $("#Msg").show();
-                        $("#Msg").text(data.msg);
-                        resetForm();
+                        swal({
+                            title:"Sukses",
+                            text: "Pesan Anda Berhasil Terkirim",
+                            timer: 2000,
+                            showConfirmButton: false,
+                            type: "success"
+                        });
+                        location.reload();
                     } else {
-                        $("#Msg").show();
-                        $("#Msg").text(data.msg);
+                        swal({
+                            title:"Gagal",
+                            text: "Pesan Anda Gagal Terkirim",
+                            timer: 2000,
+                            showConfirmButton: false,
+                            type: "errror"
+                        });
                     }
                 },
                 error: function() {

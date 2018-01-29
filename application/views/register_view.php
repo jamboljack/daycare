@@ -141,8 +141,9 @@
                                 <div class="col-sm-12">
                                     <input type="text" class="field-text" name="ortu" id="ortu" placeholder="Nama Orang Tua/Wali Murid" required>
                                 </div>
-                                <div class="col-sm-12"></div>
-                                <div class="col-sm-12"></div>
+                                <div class="col-sm-12">
+                                    <br>
+                                </div>
                                 <div class="col-sm-12">
                                     <?=$this->recaptcha->render();?>
                                 </div>
@@ -290,7 +291,7 @@ $(document).ready(function() {
                     if (data.status === 'success') {
                         swal({
                             title:"Sukses",
-                            text: "Pendaftaran Berhasil",
+                            text: "Pendaftaran Anda Berhasil",
                             timer: 2000,
                             showConfirmButton: false,
                             type: "success"
@@ -299,7 +300,7 @@ $(document).ready(function() {
                     } else {
                         swal({
                             title:"Gagal",
-                            text: "Pendaftaran Gagal",
+                            text: "Pendaftaran Anda Gagal",
                             timer: 2000,
                             showConfirmButton: false,
                             type: "errror"
@@ -309,7 +310,7 @@ $(document).ready(function() {
                 error: function() {
                     swal({
                         title:"Error",
-                        text: "Kirim Pesan Gagal",
+                        text: "Pendaftaran Pesan Error",
                         timer: 2000,
                         showConfirmButton: false,
                         type: "error"
