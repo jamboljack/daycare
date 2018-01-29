@@ -75,7 +75,12 @@ if ($uri == '' || $uri == 'home') {
 
             </div>
             <div class="header_right float-right">
-                <span class="login-register"><a href="<?=site_url('register');?>">Pendaftaran Anak</a></span>
+                <span class="login-register">
+                     <a href="https://api.whatsapp.com/send?phone=6285647884918&text=Saya%20ingin%20bertanya%20tentang%20daycare%20Alifa" target="_blank">
+                        <i class="fa fa-whatsapp"></i> WA 085-647-884-918
+                    </a>
+                    <a href="<?=site_url('register');?>">Pendaftaran Anak</a>
+                </span>
             </div>
         </div>
     </div>
