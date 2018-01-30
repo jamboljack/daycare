@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Error extends CI_Controller
+class My_error extends CI_Controller
 {
     public function __construct()
     {
@@ -15,4 +15,4 @@ class Error extends CI_Controller
         $this->load->view('404_view');
     }
 }
-/* Location: ./application/controller/Error.php */
+/* Location: ./application/controller/My_error.php */

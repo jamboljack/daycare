@@ -45,7 +45,7 @@ class Artikel extends CI_Controller
         $category_id = decrypt($category_id);
         $check       = $this->artikel_m->select_category_detail($category_id)->row();
         if (count($check) == 0) {
-            redirect(site_url('error'));
+            redirect(site_url('my_error'));
         } else {
             // Content
             $category_id           = $category_id;
@@ -84,7 +84,7 @@ class Artikel extends CI_Controller
         $article_id = decrypt($article_id);
         $check      = $this->artikel_m->select_detail($article_id)->row();
         if (count($check) == 0) {
-            redirect(site_url('error'));
+            redirect(site_url('my_error'));
         } else {
             $data['detail'] = $this->artikel_m->select_detail($article_id)->row();
             $this->template_front->display('artikel_detail_view', $data);

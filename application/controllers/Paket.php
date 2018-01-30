@@ -12,7 +12,7 @@ class Paket extends CI_Controller
 
     public function index()
     {
-        redirect(site_url('error'));
+        redirect(site_url('my_error'));
     }
 
     public function id($paket_id)
@@ -20,7 +20,7 @@ class Paket extends CI_Controller
         $paket_id = decrypt($paket_id);
         $check    = $this->paket_m->select_detail($paket_id)->row();
         if (count($check) == 0) {
-            redirect(site_url('error'));
+            redirect(site_url('my_error'));
         } else {
             $data['detail']    = $this->paket_m->select_detail($paket_id)->row();
             $data['listPaket'] = $this->paket_m->select_paket()->result();
