@@ -72,5 +72,19 @@ class Artikel_m extends CI_Model
 
         return $this->db->get();
     }
+
+    function update_view($article_id) {
+        $this->db->select('article_read');
+        $this->db->from('alifa_article');
+        $this->db->where('article_id', $article_id);
+        $read = $this->db->get()->row();
+
+        $data = array(
+                'article_read'  => ($read->article_read+1),
+            );
+
+        $this->db->where('article_id', $article_id);
+        $this->db->update('alifa_article', $data);
+    }
 }
 /* Location: ./application/model/Home_m.php */

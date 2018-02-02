@@ -78,8 +78,8 @@ $meta = $this->menu_m->select_meta()->row();
                         <ul>
                             <li><a href="<?=site_url('profil');?>">Profil</a></li>
                             <li><a href="<?=site_url('produk');?>">Produk & Fasilitas</a></li>
-                            <li><a href="<?=site_url('kontak');?>">Kontak Kami</a></li>
                             <li><a href="<?=site_url('register');?>">Pendaftaran Anak</a></li>
+                            <li><a href="<?=site_url('kontak');?>">Kontak Kami</a></li>
                         </ul>
                     </div>
                 </div>

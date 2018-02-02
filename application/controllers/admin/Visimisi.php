@@ -6,7 +6,7 @@ class Visimisi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        if (!$this->session->userdata('level') == 'Admin' && !$this->session->userdata('logged_in_alifa')) {
+        if (!$this->session->userdata('logged_in_alifa')) {
             redirect(base_url());
         }
 
@@ -16,7 +16,7 @@ class Visimisi extends CI_Controller
 
     public function index()
     {
-        if ($this->session->userdata('level') == 'Admin' && $this->session->userdata('logged_in_alifa')) {
+        if ($this->session->userdata('logged_in_alifa')) {
             $data['detail'] = $this->visimisi_m->select_detail()->row();
             $this->template->display('admin/master/visimisi_view', $data);
         } else {

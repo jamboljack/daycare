@@ -84,6 +84,7 @@
                                     <th width="5%">No</th>
                                     <th width="10%">Tgl. Post</th>
                                     <th>Nama Promo</th>
+                                    <th width="20%">Kategori</th>
                                     <th width="30%">Gambar</th>
                                 </tr>
                             </thead>
@@ -120,7 +121,7 @@ $(document).ready(function() {
         },
         "columnDefs": [
         {
-            "targets": [ 0, 1, 4],
+            "targets": [ 0, 1, 5],
             "orderable": false,
         },
         ],
@@ -133,8 +134,7 @@ $(document).ready(function() {
 // Reset Form Input
 function resetformInput() {
     $("#name").val('');
-    $path = '<?=base_url();?>img/';
-    $('.fileinput').attr('src', $path+'no-image.png');
+    $("#lstCategory").val('');
 
     var MValid = $("#formInput");
     MValid.validate().resetForm();
@@ -166,11 +166,15 @@ $(document).ready(function() {
         ignore: "",
         rules: {
             name: { required: true },
+            lstCategory: { required: true },
             foto: { required: true }
         },
         messages: {
             name: {
                 required :'Nama Promo harus diisi'
+            },
+            lstCategory: {
+                required :'Kategori harus diisi'
             },
             foto: {
                 required :'Gambar Promo harus dipilih'
@@ -256,6 +260,7 @@ function edit_data(id) {
         success: function(data) {
             $('#id').val(data.promo_id);
             $('#promo_name').val(data.promo_name);
+            $('#promo_category_id').val(data.promo_category_id);
             $('#promo_image').val(data.promo_image);
 
             $path = '<?=base_url();?>img/';
@@ -380,6 +385,19 @@ $(document).ready(function() {
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-md-3 control-label">Kategori</label>
+                    <div class="col-md-9">
+                        <div class="input-icon right"><i class="fa"></i>
+                            <select class="form-control" name="lstCategory" id="lstCategory" required>
+                                <option value="">- Pilih -</option>
+                                <?php foreach ($listCategory as $r) {?>
+                                <option value="<?=$r->promo_category_id;?>"><?=$r->promo_category_name;?></option>
+                                <?php }?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-md-3 control-label">Upload Gambar</label>
                     <div class="col-md-9">
                         <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -431,6 +449,19 @@ $(document).ready(function() {
                     <div class="col-md-9">
                         <div class="input-icon right"><i class="fa"></i>
                             <input type="text" class="form-control" placeholder="Input Nama Promo" name="name" id="promo_name" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Kategori</label>
+                    <div class="col-md-9">
+                        <div class="input-icon right"><i class="fa"></i>
+                            <select class="form-control" name="lstCategory" id="promo_category_id" required>
+                                <option value="">- Pilih -</option>
+                                <?php foreach ($listCategory as $r) {?>
+                                <option value="<?=$r->promo_category_id;?>"><?=$r->promo_category_name;?></option>
+                                <?php }?>
+                            </select>
                         </div>
                     </div>
                 </div>

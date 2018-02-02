@@ -86,6 +86,7 @@ class Artikel extends CI_Controller
         if (count($check) == 0) {
             redirect(site_url('my_error'));
         } else {
+            $this->artikel_m->update_view($article_id); // Update View
             $data['detail'] = $this->artikel_m->select_detail($article_id)->row();
             $this->template_front->display('artikel_detail_view', $data);
         }

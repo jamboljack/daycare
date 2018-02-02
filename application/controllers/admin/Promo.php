@@ -17,7 +17,8 @@ class Promo extends CI_Controller
     public function index()
     {
         if ($this->session->userdata('logged_in_alifa')) {
-            $this->template->display('admin/master/promo_view');
+            $data['listCategory'] = $this->promo_m->select_category()->result();
+            $this->template->display('admin/master/promo_view', $data);
         } else {
             $this->session->sess_destroy();
             redirect(base_url());
@@ -47,6 +48,7 @@ class Promo extends CI_Controller
             $row[] = $no;
             $row[] = date('d-m-Y' ,strtotime($r->promo_post));
             $row[] = $r->promo_name;
+            $row[] = $r->promo_category_name;
             $row[] = '<img src=' . base_url('img/promo_folder/' . $r->promo_image) . ' width="50%">';
 
             $data[] = $row;

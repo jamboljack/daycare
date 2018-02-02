@@ -77,7 +77,7 @@ if ($uri == '' || $uri == 'home') {
             <div class="header_right float-right">
                 <span class="login-register">
                     <a href="https://api.whatsapp.com/send?phone=6285647884918&text=Saya%20ingin%20bertanya%20tentang%20daycare%20Alifa" target="_blank">
-                        <i class="fa fa-whatsapp"></i> WA 085-647-884-918
+                        <img src="<?=base_url('img/logo-wa.png');?>"> 085-647-884-918
                     </a>
                     <a href="<?=site_url('register');?>">Pendaftaran Anak</a>
                 </span>
@@ -94,7 +94,15 @@ if ($uri == '' || $uri == 'home') {
                     <li class="<?=$beranda;?>">
                         <a href="<?=base_url();?>"><i class="fa fa-home"></i> Beranda</a>
                     </li>
-                    <li class="<?=$profil;?>"><a href="<?=site_url('profil');?>">Profil</a></li>
+                    <li>
+                        <a href="#">Profil <span class="fa fa-caret-down"></span></a>
+                        <ul class="sub-menu">
+                            <li><a href="<?=site_url('profil/id/4');?>">Sambutan Direktur</a></li>
+                            <li><a href="<?=site_url('profil/id/2');?>">Visi & Misi</a></li>
+                            <li><a href="<?=site_url('profil/id/1');?>">Profil Daycare</a></li>
+                            <li><a href="<?=site_url('profil/id/5');?>">Keunggulan</a></li>
+                        </ul>
+                    </li>
                     <li class="<?=$produk;?>"><a href="<?=site_url('produk');?>">Produk & Fasilitas</a></li>
                     <li class="<?=$galeri;?>"><a href="<?=site_url('galeri');?>">Galeri</a></li>
                     <li class="<?=$promo;?>"><a href="<?=site_url('promo');?>">Promo</a></li>

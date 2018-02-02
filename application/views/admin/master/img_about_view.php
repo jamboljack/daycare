@@ -41,7 +41,7 @@
 
 <div class="page-content-wrapper">
     <div class="page-content">
-        <h3 class="page-title">Foto Tentang Kami</h3>
+        <h3 class="page-title">Foto Profil Daycare</h3>
         <div class="page-bar">
             <ul class="page-breadcrumb">
                 <li>
@@ -50,11 +50,11 @@
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Umum</a>
+                    <a href="#">Profil</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Foto Tentang Kami</a>
+                    <a href="#">Foto Profil Daycare</a>
                 </li>
             </ul>
             <div class="page-toolbar">
@@ -69,7 +69,7 @@
                 <div class="portlet box grey-steel">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-list"></i> Daftar Foto Tentang Kami
+                            <i class="fa fa-list"></i> Daftar Foto Profil Daycare
                         </div>
                     </div>
                     <div class="portlet-body">

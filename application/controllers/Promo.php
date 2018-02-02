@@ -12,7 +12,8 @@ class Promo extends CI_Controller
 
     public function index()
     {
-        $data['listPromo']   = $this->promo_m->select_promo()->result();
+        $data['listCategory'] = $this->promo_m->select_category()->result();
+        $data['listPromo']    = $this->promo_m->select_promo()->result();
         $this->template_front->display('promo_view', $data);
     }
 }

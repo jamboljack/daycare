@@ -15,7 +15,7 @@
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Umum</a>
+                    <a href="#">Profil</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>

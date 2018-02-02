@@ -5,7 +5,7 @@
 <div class="page-content-wrapper">
     <div class="page-content">
         <h3 class="page-title">
-            Tentang Kami
+            Profil Daycare
         </h3>
         <div class="page-bar">
             <ul class="page-breadcrumb">
@@ -15,11 +15,11 @@
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Umum</a>
+                    <a href="#">Profil</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Tentang Kami</a>
+                    <a href="#">Profil Daycare</a>
                 </li>
             </ul>
             <div class="page-toolbar">
@@ -35,7 +35,7 @@
                 <div class="portlet box grey-steel">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-edit"></i> Detail Tentang Kami
+                            <i class="fa fa-edit"></i> Detail Profil Daycare
                         </div>
                     </div>
 

@@ -8,9 +8,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -20,7 +17,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -43,124 +52,28 @@ if ($uri == 'home') {
     $span_master_1    = '<span class="selected"></span>';
     $span_master_2    = 'open';
     $slider           = 'active';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
     $about            = '';
     $img_about        = '';
-    $visimisi         = '';
-    $team             = '';
-    $employee         = '';
-    $meta             = '';
-    $social           = '';
-    $off              = '';
-    $span_off_1       = '';
-    $span_off_2       = '';
-    $branch           = '';
-    $office           = '';
+    $excellence       = '';
     $product          = '';
-    $promo            = '';
-    $gal              = '';
-    $span_gal_1       = '';
-    $span_gal_2       = '';
-    $category_gallery = '';
-    $gallery          = '';
-    $tabloid          = '';
-    $span_tab_1       = '';
-    $span_tab_2       = '';
-    $category         = '';
-    $article          = '';
-    $paket            = '';
-    $message          = '';
-    $year             = '';
-    $student          = '';
-    $users            = '';
-} elseif ($uri == 'about') {
-    $dashboard        = '';
-    $master           = 'active open';
-    $span_master_1    = '<span class="selected"></span>';
-    $span_master_2    = 'open';
-    $slider           = '';
-    $about            = 'active';
-    $img_about        = '';
-    $visimisi         = '';
-    $team             = '';
-    $employee         = '';
-    $meta             = '';
-    $social           = '';
-    $off              = '';
-    $span_off_1       = '';
-    $span_off_2       = '';
-    $branch           = '';
-    $office           = '';
-    $product          = '';
-    $promo            = '';
-    $gal              = '';
-    $span_gal_1       = '';
-    $span_gal_2       = '';
-    $category_gallery = '';
-    $gallery          = '';
-    $tabloid          = '';
-    $span_tab_1       = '';
-    $span_tab_2       = '';
-    $category         = '';
-    $article          = '';
-    $paket            = '';
-    $message          = '';
-    $year             = '';
-    $student          = '';
-    $users            = '';
-} elseif ($uri == 'img_about') {
-    $dashboard        = '';
-    $master           = 'active open';
-    $span_master_1    = '<span class="selected"></span>';
-    $span_master_2    = 'open';
-    $slider           = '';
-    $about            = '';
-    $img_about        = 'active';
-    $visimisi         = '';
-    $team             = '';
-    $employee         = '';
-    $meta             = '';
-    $social           = '';
-    $off              = '';
-    $span_off_1       = '';
-    $span_off_2       = '';
-    $branch           = '';
-    $office           = '';
-    $product          = '';
-    $promo            = '';
-    $gal              = '';
-    $span_gal_1       = '';
-    $span_gal_2       = '';
-    $category_gallery = '';
-    $gallery          = '';
-    $tabloid          = '';
-    $span_tab_1       = '';
-    $span_tab_2       = '';
-    $category         = '';
-    $article          = '';
-    $paket            = '';
-    $message          = '';
-    $year             = '';
-    $student          = '';
-    $users            = '';
-} elseif ($uri == 'visimisi') {
-    $dashboard        = '';
-    $master           = 'active open';
-    $span_master_1    = '<span class="selected"></span>';
-    $span_master_2    = 'open';
-    $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = 'active';
-    $team             = '';
-    $employee         = '';
-    $meta             = '';
-    $social           = '';
-    $off              = '';
-    $span_off_1       = '';
-    $span_off_2       = '';
-    $branch           = '';
-    $office           = '';
-    $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -183,9 +96,6 @@ if ($uri == 'home') {
     $span_master_1    = '<span class="selected"></span>';
     $span_master_2    = 'open';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = 'active';
     $employee         = '';
     $meta             = '';
@@ -195,7 +105,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -218,9 +140,6 @@ if ($uri == 'home') {
     $span_master_1    = '<span class="selected"></span>';
     $span_master_2    = 'open';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = 'active';
     $meta             = '';
@@ -230,7 +149,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -253,9 +184,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = 'active';
@@ -265,7 +193,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -288,9 +228,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -300,7 +237,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -323,9 +272,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -335,7 +281,19 @@ if ($uri == 'home') {
     $span_off_2       = 'open';
     $branch           = 'active';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -358,9 +316,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -370,7 +325,239 @@ if ($uri == 'home') {
     $span_off_2       = 'open';
     $branch           = '';
     $office           = 'active';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $message          = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'greeting') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
+    $prof             = 'active open';
+    $span_prof_1      = '<span class="selected"></span>';
+    $span_prof_2      = 'open';
+    $greeting         = 'active';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
+    $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $message          = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'visimisi') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
+    $prof             = 'active open';
+    $span_prof_1      = '<span class="selected"></span>';
+    $span_prof_2      = 'open';
+    $greeting         = '';
+    $visimisi         = 'active';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
+    $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $message          = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'about') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
+    $prof             = 'active open';
+    $span_prof_1      = '<span class="selected"></span>';
+    $span_prof_2      = 'open';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = 'active';
+    $img_about        = '';
+    $excellence       = '';
+    $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $message          = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'img_about') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
+    $prof             = 'active open';
+    $span_prof_1      = '<span class="selected"></span>';
+    $span_prof_2      = 'open';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = 'active';
+    $excellence       = '';
+    $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $message          = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'excellence') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
+    $prof             = 'active open';
+    $span_prof_1      = '<span class="selected"></span>';
+    $span_prof_2      = 'open';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = 'active';
+    $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -393,9 +580,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -405,7 +589,63 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = 'active';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
+    $promo            = '';
+    $gal              = '';
+    $span_gal_1       = '';
+    $span_gal_2       = '';
+    $category_gallery = '';
+    $gallery          = '';
+    $tabloid          = '';
+    $span_tab_1       = '';
+    $span_tab_2       = '';
+    $category         = '';
+    $article          = '';
+    $paket            = '';
+    $message          = '';
+    $year             = '';
+    $student          = '';
+    $users            = '';
+} elseif ($uri == 'promo_category') {
+    $dashboard        = '';
+    $master           = '';
+    $span_master_1    = '';
+    $span_master_2    = '';
+    $slider           = '';
+    $team             = '';
+    $employee         = '';
+    $meta             = '';
+    $social           = '';
+    $off              = '';
+    $span_off_1       = '';
+    $span_off_2       = '';
+    $branch           = '';
+    $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
+    $product          = '';
+    $pro              = 'active open';
+    $span_pro_1       = '<span class="selected"></span>';
+    $span_pro_2       = 'open';
+    $promo_category   = 'active';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -428,9 +668,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -440,7 +677,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = 'active open';
+    $span_pro_1       = '<span class="selected"></span>';
+    $span_pro_2       = 'open';
+    $promo_category   = '';
     $promo            = 'active';
     $gal              = '';
     $span_gal_1       = '';
@@ -463,9 +712,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -475,7 +721,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = 'active open';
     $span_gal_1       = '<span class="selected"></span>';
@@ -498,9 +756,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -510,7 +765,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = 'active open';
     $span_gal_1       = '<span class="selected"></span>';
@@ -533,9 +800,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -545,7 +809,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -568,9 +844,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -580,7 +853,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -603,9 +888,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -615,7 +897,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -638,9 +932,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -650,7 +941,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -673,9 +976,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -685,7 +985,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -708,9 +1020,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -720,7 +1029,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -743,9 +1064,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -755,7 +1073,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -778,9 +1108,6 @@ if ($uri == 'home') {
     $span_master_1    = '';
     $span_master_2    = '';
     $slider           = '';
-    $about            = '';
-    $img_about        = '';
-    $visimisi         = '';
     $team             = '';
     $employee         = '';
     $meta             = '';
@@ -790,7 +1117,19 @@ if ($uri == 'home') {
     $span_off_2       = '';
     $branch           = '';
     $office           = '';
+    $prof             = '';
+    $span_prof_1      = '';
+    $span_prof_2      = '';
+    $greeting         = '';
+    $visimisi         = '';
+    $about            = '';
+    $img_about        = '';
+    $excellence       = '';
     $product          = '';
+    $pro              = '';
+    $span_pro_1       = '';
+    $span_pro_2       = '';
+    $promo_category   = '';
     $promo            = '';
     $gal              = '';
     $span_gal_1       = '';
@@ -847,15 +1186,6 @@ if ($uri == 'home') {
                     <li class="<?=$slider;?>">
                         <a href="<?=site_url('admin/slider');?>"><i class="fa fa-arrow-circle-o-right"></i> Slider Utama</a>
                     </li>
-                    <li class="<?=$about;?>">
-                        <a href="<?=site_url('admin/about');?>"><i class="fa fa-arrow-circle-o-right"></i> Tentang Kami</a>
-                    </li>
-                    <li class="<?=$img_about;?>">
-                        <a href="<?=site_url('admin/img_about');?>"><i class="fa fa-arrow-circle-o-right"></i> Foto Tentang Kami</a>
-                    </li>
-                    <li class="<?=$visimisi;?>">
-                        <a href="<?=site_url('admin/visimisi');?>"><i class="fa fa-arrow-circle-o-right"></i> Visi dan Misi</a>
-                    </li>
                     <li class="<?=$team;?>">
                         <a href="<?=site_url('admin/team');?>"><i class="fa fa-arrow-circle-o-right"></i> Tim</a>
                     </li>
@@ -894,15 +1224,51 @@ if ($uri == 'home') {
             <li class="heading">
                 <h3 class="uppercase">CONTENT</h3>
             </li>
+            <li class="<?=$prof;?>">
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span class="title"> Profil</span>
+                    <?=$span_prof_1;?>
+                    <span class="arrow <?=$span_prof_2;?>"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="<?=$greeting;?>">
+                        <a href="<?=site_url('admin/greeting');?>"><i class="fa fa-arrow-circle-o-right"></i> Sambutan Direktur</a>
+                    </li>
+                    <li class="<?=$visimisi;?>">
+                        <a href="<?=site_url('admin/visimisi');?>"><i class="fa fa-arrow-circle-o-right"></i> Visi dan Misi</a>
+                    </li>
+                    <li class="<?=$about;?>">
+                        <a href="<?=site_url('admin/about');?>"><i class="fa fa-arrow-circle-o-right"></i> Profil Daycare</a>
+                    </li>
+                    <li class="<?=$img_about;?>">
+                        <a href="<?=site_url('admin/img_about');?>"><i class="fa fa-arrow-circle-o-right"></i> Foto Profil Daycare</a>
+                    </li>
+                    <li class="<?=$excellence;?>">
+                        <a href="<?=site_url('admin/excellence');?>"><i class="fa fa-arrow-circle-o-right"></i> Keunggulan</a>
+                    </li>
+                </ul>
+            </li>
             <li class="tooltips <?=$product;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Product & Facility">
                 <a href="<?=site_url('admin/product');?>">
                     <i class="fa fa-archive"></i><span class="title"> Produk & Fasilitas</span>
                 </a>
             </li>
-            <li class="tooltips <?=$promo;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Promo">
-                <a href="<?=site_url('admin/promo');?>">
-                    <i class="fa fa-tags"></i><span class="title"> Promo</span>
+            <li class="<?=$pro;?>">
+                <a href="#">
+                    <i class="fa fa-tags"></i>
+                    <span class="title"> Promo</span>
+                    <?=$span_pro_1;?>
+                    <span class="arrow <?=$span_pro_2;?>"></span>
                 </a>
+                <ul class="sub-menu">
+                    <li class="<?=$promo_category;?>">
+                        <a href="<?=site_url('admin/promo_category');?>"><i class="fa fa-arrow-circle-o-right"></i> Kategori</a>
+                    </li>
+                    <li class="<?=$promo;?>">
+                        <a href="<?=site_url('admin/promo');?>"><i class="fa fa-arrow-circle-o-right"></i> Promo</a>
+                    </li>
+                </ul>
             </li>
             <li class="<?=$gal;?>">
                 <a href="#">

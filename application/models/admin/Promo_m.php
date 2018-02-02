@@ -4,9 +4,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Promo_m extends CI_Model
 {
     public $table         = 'alifa_promo';
-    public $column_order  = array(null, null, 'promo_post', 'promo_name', null);
-    public $column_search = array('promo_name');
-    public $order         = array('promo_id' => 'desc');
+    public $column_order  = array(null, null, 'p.promo_post', 'p.promo_name', 'c.promo_category_name', null);
+    public $column_search = array('p.promo_post', 'p.promo_name', 'c.promo_category_name');
+    public $order         = array('p.promo_post' => 'desc', 'p.promo_category_id' => 'asc');
 
     public function __construct()
     {
@@ -15,7 +15,9 @@ class Promo_m extends CI_Model
 
     private function _get_datatables_query()
     {
-        $this->db->from($this->table);
+        $this->db->select('p.*, c.promo_category_name');
+        $this->db->from('alifa_promo p');
+        $this->db->join('alifa_promo_category c', 'p.promo_category_id=c.promo_category_id');
 
         $i = 0;
         foreach ($this->column_search as $item) {
@@ -67,14 +69,24 @@ class Promo_m extends CI_Model
         return $this->db->count_all_results();
     }
 
+    public function select_category()
+    {
+        $this->db->select('*');
+        $this->db->from('alifa_promo_category');
+        $this->db->order_by('promo_category_name', 'asc');
+
+        return $this->db->get();
+    }
+
     public function insert_data()
     {
         $data = array(
-            'user_username' => $this->session->userdata('username'),
-            'promo_name'    => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
-            'promo_image'   => $this->upload->file_name,
-            'promo_post'    => date('Y-m-d H:i:s'),
-            'promo_update'  => date('Y-m-d H:i:s'),
+            'user_username'     => $this->session->userdata('username'),
+            'promo_category_id' => $this->input->post('lstCategory', 'true'),
+            'promo_name'        => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
+            'promo_image'       => $this->upload->file_name,
+            'promo_post'        => date('Y-m-d H:i:s'),
+            'promo_update'      => date('Y-m-d H:i:s'),
         );
 
         $this->db->insert('alifa_promo', $data);
@@ -95,6 +107,7 @@ class Promo_m extends CI_Model
         if (!empty($_FILES['foto']['name'])) {
             $data = array(
                 'user_username' => $this->session->userdata('username'),
+                'promo_category_id' => $this->input->post('lstCategory', 'true'),
                 'promo_name'    => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
                 'promo_image'   => $this->upload->file_name,
                 'promo_update'  => date('Y-m-d H:i:s'),
@@ -102,6 +115,7 @@ class Promo_m extends CI_Model
         } else {
             $data = array(
                 'user_username' => $this->session->userdata('username'),
+                'promo_category_id' => $this->input->post('lstCategory', 'true'),
                 'promo_name'    => strtoupper(stripHTMLtags($this->input->post('name', 'true'))),
                 'promo_update'  => date('Y-m-d H:i:s'),
             );
