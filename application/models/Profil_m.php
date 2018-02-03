@@ -54,5 +54,14 @@ class Profil_m extends CI_Model
 
         return $this->db->get();
     }
+
+    public function select_detail($menu_id)
+    {
+        $this->db->select('*');
+        $this->db->from('alifa_menu');
+        $this->db->where('menu_id', $menu_id);
+
+        return $this->db->get();
+    }
 }
 /* Location: ./application/model/Profil_m.php */

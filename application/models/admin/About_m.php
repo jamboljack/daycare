@@ -22,7 +22,7 @@ class About_m extends CI_Model
         $menu_id = 1;
 
         $data = array(
-            'menu_desc'   => $this->input->post('desc', 'true'),
+            'menu_desc'   => $this->input->post('desc'),
             'menu_update' => date('Y-m-d H:i:s'),
         );
 

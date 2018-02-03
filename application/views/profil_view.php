@@ -20,18 +20,12 @@
                 <div class="text">
                     <h2 class="heading">Tentang Kami</h2>
                     <div class="desc">
-                        <p align="justify"><?=$detailprofil->menu_desc;?></p>
-                    </div>
-                </div>
-            </div>
-            <div class="about-item about-right">
-                <div class="img">
-                    <img src="<?=base_url('img/logo-big.png');?>" alt="">
-                </div>
-                <div class="text">
-                    <h2 class="heading">Visi dan Misi</h2>
-                    <div class="desc">
-                        <p align="justify"><?=$detailvisi->menu_desc;?></p>
+                        <p align="justify">
+                            <?php
+                            $desc =  str_replace('&lt;', '<', str_replace('&gt;', '>', $detailprofil->menu_desc));
+                            echo $desc;
+                            ?>
+                        </p>
                     </div>
                 </div>
             </div>

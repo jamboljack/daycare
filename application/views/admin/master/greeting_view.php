@@ -2,8 +2,8 @@
 <script src="<?=base_url();?>backend/js/sweetalert2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?=base_url();?>backend/assets/global/plugins/bootstrap-summernote/summernote.css">
 
-<?php 
-if ($this->session->flashdata('notification')) { ?>
+<?php
+if ($this->session->flashdata('notification')) {?>
 <script>
 swal({
     title: "Sukses",
@@ -13,7 +13,7 @@ swal({
     type: 'success'
 });
 </script>
-<? } ?>
+<?}?>
 
 <div class="page-content-wrapper">
     <div class="page-content">
@@ -83,6 +83,27 @@ swal({
 <script src="<?=base_url();?>backend/assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#summernote').summernote({});
+    $('#summernote').summernote({
+        height: 500,
+        onImageUpload: function(files, editor, welEditable) {
+            sendFile(files[0], editor, welEditable);
+        }
+    });
+
+    function sendFile(file, editor, welEditable) {
+        data = new FormData();
+        data.append("file", file);
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: '<?=site_url('admin/greeting/uploadimage');?>',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(url) {
+                editor.insertImage(welEditable, url);
+            }
+        });
+    }
 });
 </script>

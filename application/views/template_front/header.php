@@ -1,17 +1,32 @@
 <?php
-$uri = $this->uri->segment(1);
+$uri    = $this->uri->segment(1);
+$uri1   = $this->uri->segment(2);
 
 if ($uri == '' || $uri == 'home') {
-    $beranda = 'current-menu-item';
-    $profil  = '';
+    $beranda    = 'current-menu-item';
+    $profMenu   = '';
+    $profDetail = '';
+    $profil     = '';
+    $produk     = '';
+    $galeri     = '';
+    $promo      = '';
+    $artikel    = '';
+    $kontak     = '';
+} elseif ($uri == 'profil' && $uri1 == '') {
+    $beranda = '';
+    $profMenu   = 'current-menu-item';
+    $profDetail = '';
+    $profil  = 'current-menu-item';
     $produk  = '';
     $galeri  = '';
     $promo   = '';
     $artikel = '';
     $kontak  = '';
-} elseif ($uri == 'profil') {
+} elseif ($uri == 'profil' && $uri1 == 'id') {
     $beranda = '';
-    $profil  = 'current-menu-item';
+    $profMenu   = 'current-menu-item';
+    $profDetail = 'current-menu-item';
+    $profil  = '';
     $produk  = '';
     $galeri  = '';
     $promo   = '';
@@ -19,7 +34,9 @@ if ($uri == '' || $uri == 'home') {
     $kontak  = '';
 } elseif ($uri == 'produk') {
     $beranda = '';
-    $profil  = '';
+    $profMenu   = '';
+    $profDetail = '';
+    $profil     = '';
     $produk  = 'current-menu-item';
     $galeri  = '';
     $promo   = '';
@@ -27,7 +44,9 @@ if ($uri == '' || $uri == 'home') {
     $kontak  = '';
 } elseif ($uri == 'galeri') {
     $beranda = '';
-    $profil  = '';
+    $profMenu   = '';
+    $profDetail = '';
+    $profil     = '';
     $produk  = '';
     $galeri  = 'current-menu-item';
     $promo   = '';
@@ -35,7 +54,9 @@ if ($uri == '' || $uri == 'home') {
     $kontak  = '';
 } elseif ($uri == 'promo') {
     $beranda = '';
-    $profil  = '';
+    $profMenu   = '';
+    $profDetail = '';
+    $profil     = '';
     $produk  = '';
     $galeri  = '';
     $promo   = 'current-menu-item';
@@ -43,7 +64,9 @@ if ($uri == '' || $uri == 'home') {
     $kontak  = '';
 } elseif ($uri == 'artikel') {
     $beranda = '';
-    $profil  = '';
+    $profMenu   = '';
+    $profDetail = '';
+    $profil     = '';
     $produk  = '';
     $galeri  = '';
     $promo   = '';
@@ -51,7 +74,9 @@ if ($uri == '' || $uri == 'home') {
     $kontak  = '';
 } elseif ($uri == 'kontak') {
     $beranda = '';
-    $profil  = '';
+    $profMenu   = '';
+    $profDetail = '';
+    $profil     = '';
     $produk  = '';
     $galeri  = '';
     $promo   = '';
@@ -59,7 +84,9 @@ if ($uri == '' || $uri == 'home') {
     $kontak  = 'current-menu-item';
 } else {
     $beranda = '';
-    $profil  = '';
+    $profMenu   = '';
+    $profDetail = '';
+    $profil     = '';
     $produk  = '';
     $galeri  = '';
     $promo   = '';
@@ -94,13 +121,13 @@ if ($uri == '' || $uri == 'home') {
                     <li class="<?=$beranda;?>">
                         <a href="<?=base_url();?>"><i class="fa fa-home"></i> Beranda</a>
                     </li>
-                    <li>
+                    <li class="<?=$profMenu;?>">
                         <a href="#">Profil <span class="fa fa-caret-down"></span></a>
                         <ul class="sub-menu">
-                            <li><a href="<?=site_url('profil/id/4');?>">Sambutan Direktur</a></li>
-                            <li><a href="<?=site_url('profil/id/2');?>">Visi & Misi</a></li>
-                            <li><a href="<?=site_url('profil/id/1');?>">Profil Daycare</a></li>
-                            <li><a href="<?=site_url('profil/id/5');?>">Keunggulan</a></li>
+                            <li class="<?php if ($this->uri->segment(3)=='4') { echo $profDetail; } else { echo ''; } ?>"><a href="<?=site_url('profil/id/4');?>">Sambutan Direktur</a></li>
+                            <li class="<?php if ($this->uri->segment(3)=='2') { echo $profDetail; } else { echo ''; } ?>"><a href="<?=site_url('profil/id/2');?>">Visi & Misi</a></li>
+                            <li class="<?=$profil;?>"><a href="<?=site_url('profil');?>">Profil Daycare</a></li>
+                            <li class="<?php if ($this->uri->segment(3)=='5') { echo $profDetail; } else { echo ''; } ?>"><a href="<?=site_url('profil/id/5');?>">Keunggulan</a></li>
                         </ul>
                     </li>
                     <li class="<?=$produk;?>"><a href="<?=site_url('produk');?>">Produk & Fasilitas</a></li>
