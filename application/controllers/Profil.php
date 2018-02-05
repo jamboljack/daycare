@@ -20,6 +20,7 @@ class Profil extends CI_Controller
 
     public function id($menu_id)
     {
+        $menu_id = decrypt($menu_id);
         $check = $this->profil_m->select_detail($menu_id)->row();
         if (count($check) == 0) {
             redirect(site_url('my_error'));

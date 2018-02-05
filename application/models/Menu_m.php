@@ -101,5 +101,15 @@ class Menu_m extends CI_Model
 
         return $this->db->get();
     }
+
+    public function select_menu_product()
+    {
+        $this->db->select('*');
+        $this->db->from('alifa_menu');
+        $this->db->where('menu_level', 'produk');
+        $this->db->order_by('menu_id', 'asc');
+
+        return $this->db->get();
+    }
 }
 /* Location: ./application/model/Menu_m.php */

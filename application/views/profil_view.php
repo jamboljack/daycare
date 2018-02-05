@@ -41,6 +41,7 @@
             <div class="team_content">
                 <div class="row">
                     <?php 
+                    $no      = 1;
                     $team_id = $t->team_id;
                     $listStaff = $this->profil_m->select_staff($team_id)->result();
                     foreach($listStaff as $s) {
@@ -56,7 +57,13 @@
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php 
+                        if ($no%4==0) {
+                            echo '</div><div class="row">';
+                        }
+                        $no++;
+                    } 
+                    ?>
                 </div>
             </div>
         </div>

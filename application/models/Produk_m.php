@@ -9,11 +9,11 @@ class Produk_m extends CI_Model
         parent::__construct();
     }
 
-    public function select_detail()
+    public function select_detail($menu_id)
     {
         $this->db->select('*');
         $this->db->from('alifa_menu');
-        $this->db->where('menu_id', 3);
+        $this->db->where('menu_id', $menu_id);
 
         return $this->db->get();
     }

@@ -31,9 +31,9 @@ $meta = $this->menu_m->select_meta()->row();
     <script type="text/javascript" src="<?=base_url();?>front/js/lib/jquery-1.11.0.min.js"></script>
 </head>
 <body>
-    <div id="preloader">
+    <!-- <div id="preloader">
         <span class="preloader-dot"></span>
-    </div>
+    </div> -->
     <div id="page-wrap">
         <?=$_header;?>
         <?=$content;?>
@@ -53,5 +53,12 @@ $meta = $this->menu_m->select_meta()->row();
     <script type="text/javascript" src="<?=base_url();?>front/js/lib/jquery.magnific-popup.min.js"></script>
     <script type="text/javascript" src="<?=base_url();?>front/js/lib/SmoothScroll.js"></script>
     <script type="text/javascript" src="<?=base_url();?>front/js/scripts.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59838993-11"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-59838993-11');
+    </script>
 </body>
 </html>

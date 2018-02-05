@@ -138,8 +138,7 @@
                         </div>
 
                         <div class="widget">
-                            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=dd4d9711ef515a1e8c0b710020396043fcea5a4b'></script>
-                            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/336909/t/0"></script>
+                            <a href='https://acadooghostwriter.com/'>https://AcadooGhostwriter.com</a><script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=dd4d9711ef515a1e8c0b710020396043fcea5a4b'></script><script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/336909/t/0"></script>
                         </div>
                         
                     </div>

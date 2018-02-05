@@ -50,7 +50,7 @@
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>
-                    <a href="#">Profil</a>
+                    <a href="#">Menu Profil</a>
                     <i class="fa fa-angle-right"></i>
                 </li>
                 <li>

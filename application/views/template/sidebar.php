@@ -25,6 +25,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -69,6 +72,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -113,6 +119,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -157,6 +166,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -201,6 +213,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -245,6 +260,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -289,6 +307,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -333,6 +354,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -377,6 +401,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -421,6 +448,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -465,6 +495,9 @@ if ($uri == 'home') {
     $about            = 'active';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -509,6 +542,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = 'active';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -553,6 +589,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = 'active';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -597,6 +636,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = 'active open';
+    $span_prod_1      = '<span class="selected"></span>';
+    $span_prod_2      = 'open';
     $product          = 'active';
     $pro              = '';
     $span_pro_1       = '';
@@ -641,6 +683,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = 'active open';
     $span_pro_1       = '<span class="selected"></span>';
@@ -685,6 +730,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = 'active open';
     $span_pro_1       = '<span class="selected"></span>';
@@ -729,6 +777,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -773,6 +824,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -817,6 +871,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -861,6 +918,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -905,6 +965,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -949,6 +1012,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -993,6 +1059,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -1037,6 +1106,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -1081,6 +1153,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -1125,6 +1200,9 @@ if ($uri == 'home') {
     $about            = '';
     $img_about        = '';
     $excellence       = '';
+    $prod             = '';
+    $span_prod_1      = '';
+    $span_prod_2      = '';
     $product          = '';
     $pro              = '';
     $span_pro_1       = '';
@@ -1227,7 +1305,7 @@ if ($uri == 'home') {
             <li class="<?=$prof;?>">
                 <a href="#">
                     <i class="fa fa-user"></i>
-                    <span class="title"> Profil</span>
+                    <span class="title"> Menu Profil</span>
                     <?=$span_prof_1;?>
                     <span class="arrow <?=$span_prof_2;?>"></span>
                 </a>
@@ -1249,10 +1327,23 @@ if ($uri == 'home') {
                     </li>
                 </ul>
             </li>
-            <li class="tooltips <?=$product;?>" data-container="body" data-placement="right" data-html="true" data-original-title="Product & Facility">
-                <a href="<?=site_url('admin/product');?>">
-                    <i class="fa fa-archive"></i><span class="title"> Produk & Fasilitas</span>
+            <li class="<?=$prod;?>">
+                <a href="#">
+                    <i class="fa fa-archive"></i>
+                    <span class="title"> Menu Produk</span>
+                    <?=$span_prod_1;?>
+                    <span class="arrow <?=$span_prod_2;?>"></span>
                 </a>
+                <ul class="sub-menu">
+                    <?php
+                    $listProduk = $this->menu_m->select_menu_product()->result();
+                    foreach($listProduk as $p) {
+                    ?>
+                    <li class="<?php if ($this->uri->segment(4)==$p->menu_id) { echo $product; } else { echo ''; } ?>">
+                        <a href="<?=site_url('admin/product/id/'.$p->menu_id);?>"><i class="fa fa-arrow-circle-o-right"></i> <?=$p->menu_name;?></a>
+                    </li>
+                    <?php } ?>
+                </ul>
             </li>
             <li class="<?=$pro;?>">
                 <a href="#">

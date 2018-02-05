@@ -1,97 +1,106 @@
 <?php
-$uri    = $this->uri->segment(1);
-$uri1   = $this->uri->segment(2);
+$uri  = $this->uri->segment(1);
+$uri1 = $this->uri->segment(2);
 
 if ($uri == '' || $uri == 'home') {
     $beranda    = 'current-menu-item';
     $profMenu   = '';
     $profDetail = '';
     $profil     = '';
+    $prodMenu   = '';
     $produk     = '';
     $galeri     = '';
     $promo      = '';
     $artikel    = '';
     $kontak     = '';
 } elseif ($uri == 'profil' && $uri1 == '') {
-    $beranda = '';
+    $beranda    = '';
     $profMenu   = 'current-menu-item';
     $profDetail = '';
-    $profil  = 'current-menu-item';
-    $produk  = '';
-    $galeri  = '';
-    $promo   = '';
-    $artikel = '';
-    $kontak  = '';
+    $profil     = 'current-menu-item';
+    $prodMenu   = '';
+    $produk     = '';
+    $galeri     = '';
+    $promo      = '';
+    $artikel    = '';
+    $kontak     = '';
 } elseif ($uri == 'profil' && $uri1 == 'id') {
-    $beranda = '';
+    $beranda    = '';
     $profMenu   = 'current-menu-item';
     $profDetail = 'current-menu-item';
-    $profil  = '';
-    $produk  = '';
-    $galeri  = '';
-    $promo   = '';
-    $artikel = '';
-    $kontak  = '';
+    $profil     = '';
+    $prodMenu   = '';
+    $produk     = '';
+    $galeri     = '';
+    $promo      = '';
+    $artikel    = '';
+    $kontak     = '';
 } elseif ($uri == 'produk') {
-    $beranda = '';
+    $beranda    = '';
     $profMenu   = '';
     $profDetail = '';
     $profil     = '';
-    $produk  = 'current-menu-item';
-    $galeri  = '';
-    $promo   = '';
-    $artikel = '';
-    $kontak  = '';
+    $prodMenu   = '';
+    $produk     = 'current-menu-item';
+    $galeri     = '';
+    $promo      = '';
+    $artikel    = '';
+    $kontak     = '';
 } elseif ($uri == 'galeri') {
-    $beranda = '';
+    $beranda    = '';
     $profMenu   = '';
     $profDetail = '';
     $profil     = '';
-    $produk  = '';
-    $galeri  = 'current-menu-item';
-    $promo   = '';
-    $artikel = '';
-    $kontak  = '';
+    $prodMenu   = '';
+    $produk     = '';
+    $galeri     = 'current-menu-item';
+    $promo      = '';
+    $artikel    = '';
+    $kontak     = '';
 } elseif ($uri == 'promo') {
-    $beranda = '';
+    $beranda    = '';
     $profMenu   = '';
     $profDetail = '';
     $profil     = '';
-    $produk  = '';
-    $galeri  = '';
-    $promo   = 'current-menu-item';
-    $artikel = '';
-    $kontak  = '';
+    $prodMenu   = '';
+    $produk     = '';
+    $galeri     = '';
+    $promo      = 'current-menu-item';
+    $artikel    = '';
+    $kontak     = '';
 } elseif ($uri == 'artikel') {
-    $beranda = '';
+    $beranda    = '';
     $profMenu   = '';
     $profDetail = '';
     $profil     = '';
-    $produk  = '';
-    $galeri  = '';
-    $promo   = '';
-    $artikel = 'current-menu-item';
-    $kontak  = '';
+    $prodMenu   = '';
+    $produk     = '';
+    $galeri     = '';
+    $promo      = '';
+    $artikel    = 'current-menu-item';
+    $kontak     = '';
 } elseif ($uri == 'kontak') {
-    $beranda = '';
+    $beranda    = '';
     $profMenu   = '';
     $profDetail = '';
     $profil     = '';
-    $produk  = '';
-    $galeri  = '';
-    $promo   = '';
-    $artikel = '';
-    $kontak  = 'current-menu-item';
+    $prodMenu   = '';
+    $produk     = '';
+    $galeri     = '';
+    $promo      = '';
+    $artikel    = '';
+    $kontak     = 'current-menu-item';
 } else {
-    $beranda = '';
+    $beranda    = '';
     $profMenu   = '';
     $profDetail = '';
     $profil     = '';
-    $produk  = '';
-    $galeri  = '';
-    $promo   = '';
-    $artikel = '';
-    $kontak  = '';
+    $prodMenu   = '';
+    $produk     = '';
+    $galeri     = '';
+    $promo      = '';
+    $artikel    = '';
+    $kontak     = '';
 }
 
 ?>
@@ -99,7 +108,6 @@ if ($uri == '' || $uri == 'home') {
     <div class="header_top">
         <div class="container">
             <div class="header_left float-left">
-
             </div>
             <div class="header_right float-right">
                 <span class="login-register">
@@ -124,13 +132,20 @@ if ($uri == '' || $uri == 'home') {
                     <li class="<?=$profMenu;?>">
                         <a href="#">Profil <span class="fa fa-caret-down"></span></a>
                         <ul class="sub-menu">
-                            <li class="<?php if ($this->uri->segment(3)=='4') { echo $profDetail; } else { echo ''; } ?>"><a href="<?=site_url('profil/id/4');?>">Sambutan Direktur</a></li>
-                            <li class="<?php if ($this->uri->segment(3)=='2') { echo $profDetail; } else { echo ''; } ?>"><a href="<?=site_url('profil/id/2');?>">Visi & Misi</a></li>
+                            <li class="<?php if ($this->uri->segment(3) == '4') {echo $profDetail;} else {echo '';}?>"><a href="<?=site_url('profil/id/'.encrypt('4'));?>">Sambutan Direktur</a></li>
+                            <li class="<?php if ($this->uri->segment(3) == '2') {echo $profDetail;} else {echo '';}?>"><a href="<?=site_url('profil/id/'.encrypt('2'));?>">Visi & Misi</a></li>
                             <li class="<?=$profil;?>"><a href="<?=site_url('profil');?>">Profil Daycare</a></li>
-                            <li class="<?php if ($this->uri->segment(3)=='5') { echo $profDetail; } else { echo ''; } ?>"><a href="<?=site_url('profil/id/5');?>">Keunggulan</a></li>
+                            <li class="<?php if ($this->uri->segment(3) == '5') {echo $profDetail;} else {echo '';}?>"><a href="<?=site_url('profil/id/'.encrypt('5'));?>">Keunggulan</a></li>
                         </ul>
                     </li>
-                    <li class="<?=$produk;?>"><a href="<?=site_url('produk');?>">Produk & Fasilitas</a></li>
+                    <li class="<?=$prodMenu;?>">
+                        <a href="#">Produk & Fasilitas <span class="fa fa-caret-down"></span></a>
+                        <ul class="sub-menu">
+                            <?php $listProduk = $this->menu_m->select_menu_product()->result();foreach ($listProduk as $p) {?>
+                            <li class="<?php if ($this->uri->segment(3) == $p->menu_id) {echo $produk;} else {echo '';}?>"><a href="<?=site_url('produk/id/' . encrypt($p->menu_id));?>"><?=$p->menu_name;?></a></li>
+                            <?php }?>
+                        </ul>
+                    </li>
                     <li class="<?=$galeri;?>"><a href="<?=site_url('galeri');?>">Galeri</a></li>
                     <li class="<?=$promo;?>"><a href="<?=site_url('promo');?>">Promo</a></li>
                     <li class="<?=$artikel;?>"><a href="<?=site_url('artikel');?>">Tabloid</a></li>

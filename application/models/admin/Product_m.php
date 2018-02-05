@@ -8,7 +8,7 @@ class Product_m extends CI_Model
         parent::__construct();
     }
 
-    public function select_detail($menu_id = 3)
+    public function select_detail($menu_id)
     {
         $this->db->select('*');
         $this->db->from('alifa_menu');
@@ -19,7 +19,7 @@ class Product_m extends CI_Model
 
     public function update_data()
     {
-        $menu_id = 3;
+        $menu_id = $this->input->post('id', 'true');
 
         $data = array(
             'menu_desc'   => $this->input->post('desc', 'true'),
