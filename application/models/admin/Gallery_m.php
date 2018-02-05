@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Gallery_m extends CI_Model
 {
     public $table         = 'alifa_gallery';
-    public $column_order  = array(null, null, 'g.gallery_post', 'g.gallery_name', 'c.category_gallery_name', null, null);
+    public $column_order  = array(null, null, 'g.gallery_post', 'g.gallery_name', 'c.category_gallery_name', null);
     public $column_search = array('g.gallery_name', 'c.category_gallery_name');
     public $order         = array('g.gallery_id' => 'desc');
 
@@ -20,10 +20,9 @@ class Gallery_m extends CI_Model
 
     private function _get_datatables_query()
     {
-        $this->db->select('g.*, c.category_gallery_name, COUNT(d.detail_id) as jumlah');
+        $this->db->select('g.*, c.category_gallery_name');
         $this->db->from('alifa_gallery g');
         $this->db->join('alifa_category_gallery c', 'g.category_gallery_id=c.category_gallery_id');
-        $this->db->join('alifa_gallery_detail d', 'd.gallery_id=g.gallery_id', 'left');
 
         $i = 0;
         foreach ($this->column_search as $item) {

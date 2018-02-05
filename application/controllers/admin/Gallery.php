@@ -46,7 +46,6 @@ class Gallery extends CI_Controller
             $row[] = $r->gallery_name;
             $row[] = $r->category_gallery_name;
             $row[] = '<img src=' . base_url('img/gallery_folder/' . $r->gallery_image) . ' width="50%">';
-            $row[] = $r->jumlah;
 
             $data[] = $row;
         }

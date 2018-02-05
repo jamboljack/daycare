@@ -86,7 +86,6 @@
                                     <th>Nama Galeri Foto</th>
                                     <th width="15%">Kategori</th>
                                     <th width="20%">Gambar</th>
-                                    <th width="5%">Jumlah</th>
                                 </tr>
                             </thead>
 
@@ -122,7 +121,7 @@ $(document).ready(function() {
         },
         "columnDefs": [
         {
-            "targets": [ 0, 1, 5, 6],
+            "targets": [ 0, 1, 5],
             "orderable": false,
         },
         ],
