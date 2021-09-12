@@ -38,7 +38,6 @@ class Home extends CI_Controller
         $this->pagination->initialize($config);
         $data['pages']       = $this->pagination->create_links();
         $data['listArticle'] = $this->home_m->select_article($config['per_page'], $offset)->result();
-
         $this->template_front->display('home_view_flexi', $data);
     }
 }
